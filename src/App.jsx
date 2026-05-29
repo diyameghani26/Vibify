@@ -10,17 +10,23 @@ import Search from './Components/Search'
 
 const App = () => {
   return (
-    <div className="bg-[#0e0e0e] min-h-screen">
-    <Navbar/>
-     <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/discover" element={<Discover />} />
-        <Route path="/liked" element={<Liked />} />
-         <Route path="/artists" element={<Artists />} />
-         <Route path="/search" element={<Search />} />
-      </Routes>
-      <BottomNav/>
-    </div>
+   <div className="bg-[#0e0e0e] min-h-screen">
+
+  <Navbar />
+
+  <div className='pt-4 px-4  font-sans'>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/discover" element={<Discover />} />
+      <Route path="/liked" element={<Liked />} />
+      <Route path="/artists" element={<Artists />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
+  </div>
+
+  <BottomNav />
+
+</div>
   )
 }
 

@@ -29,7 +29,7 @@ const Navbar = () => {
  
 
   <div className='flex-row flex gap-10 text-xl'>
-   <NavLink to="/home" className="hover:text-pink-400 transition-all"> Home </NavLink> 
+   <NavLink to="/" className="hover:text-pink-400 transition-all"> Home </NavLink> 
    <NavLink to="/discover"   className="hover:text-pink-400 transition-all"> Discover</NavLink>
    <NavLink to="/liked"   className="hover:text-pink-400 transition-all"> Liked</NavLink>
    <NavLink to="/artists"   className="hover:text-pink-400 transition-all">Artists</NavLink>
