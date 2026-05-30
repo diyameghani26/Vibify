@@ -1,10 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+
 const BottomNav = () => {
   return (
+    <>
+    
 <div className="cursor-pointer fixed bottom-0 left-1/2 -translate-x-1/2 
-w-full h-20  
+w-full h-16  
 bg-black  
 text-white flex items-center justify-around 
 md:hidden z-50">
@@ -74,6 +77,7 @@ md:hidden z-50">
   </NavLink>
 
 </div>
+</>
   )
 }
 

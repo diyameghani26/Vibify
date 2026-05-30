@@ -7,6 +7,7 @@ import Discover from './pages/Discover'
 import { Routes, Route } from "react-router-dom"
 import BottomNav from './Components/BottomNav'
 import Search from './Components/Search'
+import PlayerBar from './Components/PlayerBar'
 
 const App = () => {
   return (
@@ -22,8 +23,9 @@ const App = () => {
       <Route path="/artists" element={<Artists />} />
       <Route path="/search" element={<Search />} />
     </Routes>
+     <PlayerBar /> 
   </div>
-
+ 
   <BottomNav />
 
 </div>

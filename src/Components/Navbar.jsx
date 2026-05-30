@@ -55,20 +55,11 @@ const Navbar = () => {
 <div className=' md:hidden flex items-center justify-between 
 bg-black text-white px-2 py-3'>
 
-  {/* Search Bar */}
-  <div className='w-72 h-12 
-  border border-white/10 bg-white/10
-  rounded-2xl backdrop-blur-xl
-  flex items-center px-4 gap-3'>
-
-    <i className="ri-search-line text-xl text-pink-400"></i>
-
-    <input
-      type="text"
-      placeholder='Search songs, artists...'
-      className='bg-transparent w-full outline-none 
-      text-white placeholder:text-zinc-500 text-sm'
-    />
+  <div className='flex items-center gap-2'>
+    <div className='w-10 h-10'>
+      <img src="/vibify.png" alt="logo" className='w-full h-full object-cover' />
+    </div>
+    <h1 className='text-lg font-semibold tracking-wide'>Vibify</h1>
   </div>
 
   {/* Icons */}
