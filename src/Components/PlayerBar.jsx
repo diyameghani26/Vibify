@@ -8,21 +8,39 @@ const PlayerBar = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
   const [volume, setVolume] = useState(0.7)
+  const [isMuted, setIsMuted] = useState(false)
   const audioRef = useRef(new Audio())
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying)
   }
 
+  const handelMute = () =>{
+    setIsMuted(!isMuted)
+  }
+
   const handleNext = () => {
     const currentIndex = tracks.findIndex(t => t.id === currentTrack.id)
-    const nextIndex = (currentIndex + 1) % tracks.length
+    let nextIndex 
+
+    if(currentIndex === tracks.length-1){
+      nextIndex = 0
+    } else {
+      nextIndex = currentIndex + 1
+    }
     setCurrentTrack(tracks[nextIndex])
   }
 
   const handlePrev = () => {
     const currentIndex = tracks.findIndex(t => t.id === currentTrack.id)
-    const prevIndex = (currentIndex - 1 + tracks.length) % tracks.length
+
+    let prevIndex 
+
+    if(currentIndex === 0){
+      prevIndex = tracks.length-1
+    } else {
+      prevIndex = currentIndex - 1
+    }
     setCurrentTrack(tracks[prevIndex])
   }
 
@@ -37,6 +55,10 @@ const PlayerBar = () => {
     audio.addEventListener('timeupdate', updateProgress)
     return () => audio.removeEventListener('timeupdate', updateProgress)
   }, [])
+
+  useEffect(() => {
+  audioRef.current.volume = isMuted ? 0 : volume
+}, [isMuted , volume])
 
   useEffect(() => {
     const audio = audioRef.current
@@ -65,7 +87,7 @@ const PlayerBar = () => {
     </div>
 
     {/* RIGHT - Controls */}
-    <div className="flex items-center gap-2 flex-shrink-0">
+    <div className="flex items-center gap-2 shrink-0">
 
         <button onClick={handlePrev} className="text-gray-400 hover:text-white">
                 <i className="ri-skip-back-fill text-2xl"></i>
@@ -124,8 +146,16 @@ const PlayerBar = () => {
           </div>
 
           <div className="flex items-center gap-2 w-32 justify-end mr-3">
-            <button className="text-gray-400 hover:text-pink-500">
-               <i className="ri-volume-down-fill text-3xl"></i>
+            <button 
+            onClick={handelMute}
+            className="text-gray-400 hover:text-pink-500">
+             <i
+    className={
+      isMuted
+        ? "ri-volume-mute-fill text-3xl"
+        : "ri-volume-down-fill text-3xl"
+    }
+  ></i>
             </button>
             <input 
               type="range" 
