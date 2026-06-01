@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
+import { APP_NAME, LOGO_PATH } from '../constants/config'
 
 const Navbar = () => {
   return (
@@ -15,14 +16,14 @@ const Navbar = () => {
 
   <div className='w-12 h-12'>
     <img
-      src="/vibify.png"
-      alt="logo"
+      src={LOGO_PATH}
+      alt={APP_NAME}
       className='w-full h-full object-cover'
     />
   </div>
 
   <h1 className='text-2xl font-semibold tracking-wide  hover:text-pink-400 transition-all"'>
-    Vibify
+  {APP_NAME}
   </h1>
 
 </div>
