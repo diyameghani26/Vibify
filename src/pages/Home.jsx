@@ -2,7 +2,7 @@ import React from 'react'
 import tracks from '../data/track'
 import { Link } from 'react-router-dom'
 
-const Home = () => {
+const Home = ({ setCurrentTrack, setIsPlaying }) => {
 
 const hour  =  new Date().getHours()
 
@@ -93,9 +93,16 @@ const greeting  =
 <div className=" px-4 sm:px-6 lg:px-10">
  
   
-  <div className="space-y-2">
+  <div 
+
+  className="space-y-2">
     {tracks.map((track) => (
-      <div key={track.id} className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5">
+      <div key={track.id} 
+          onClick={() => {
+  setCurrentTrack(track)
+  setIsPlaying(true)
+}}
+      className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5">
         
         {/* Track Number */}
         <span className="text-gray-400 w-3 sm:w-4 md:w-5 text-sm ">{track.id}</span>

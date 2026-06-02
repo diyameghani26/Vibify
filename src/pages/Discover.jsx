@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import tracks from '../data/track'
 
-const Discover = () => {
+const Discover = ({ setCurrentTrack, setIsPlaying }) => {
 
   const [searchQuery, setSearchQuery] = useState('')
 const [selectedGenre, setSelectedGenre] = useState('All')
@@ -58,6 +58,10 @@ const filteredTracks = tracks.filter((track) => {
   {filteredTracks.map((track) => (
    <div
   key={track.id}
+     onClick={() => {
+        setCurrentTrack(track)
+        setIsPlaying(true)
+      }}
   className="bg-white/5 rounded-xl p-3 hover:bg-white/10 transition-all group"
 >
   <div className="overflow-hidden rounded-lg">

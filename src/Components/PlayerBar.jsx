@@ -3,9 +3,13 @@ import tracks from '../data/track'
 import { useState } from 'react'
 import { useRef } from 'react'
 
-const PlayerBar = () => {
-  const [currentTrack, setCurrentTrack] = useState(tracks[0])
-  const [isPlaying, setIsPlaying] = useState(false)
+const PlayerBar = ({
+  currentTrack,
+  setCurrentTrack,
+  isPlaying,
+  setIsPlaying
+}) => {
+  
   const [progress, setProgress] = useState(0)
   const [volume, setVolume] = useState(0.7)
   const [isMuted, setIsMuted] = useState(false)

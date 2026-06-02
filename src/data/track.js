@@ -6,14 +6,14 @@ const tracks = [
     audio: "songs/echo-wave.mp3",
     cover: "covers/echo-wave.jpg",
     genre: "Ambient",
-    duration: "4:22"
+    duration: "2:06"
   },
 
 {
   id: "02",
   title: "Tropical Escape",
   artist: "Lofi Paradise",
-  audio: "/songs/tropical-lofi-escape.mp3",
+  audio: "/songs/Tropical-lofi-escape.mp3",
   cover: "/covers/tropical lofi escape.jpg",
   genre: "Lo-fi",
   duration: "1:59"
@@ -25,7 +25,7 @@ const tracks = [
   audio: "/songs/neon-pulse.mp3",
   cover: "/covers/neon-pulse.jpg",
   genre: "Electronic",
-  duration: "5:12"
+  duration: "3:27"
 },
 {
   id: "04",
