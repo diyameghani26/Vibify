@@ -30,10 +30,50 @@ const Navbar = () => {
  
 
   <div className='flex-row flex gap-10 text-xl'>
-   <NavLink to="/" className="hover:text-pink-400 transition-all"> Home </NavLink> 
-   <NavLink to="/discover"   className="hover:text-pink-400 transition-all"> Discover</NavLink>
-   <NavLink to="/liked"   className="hover:text-pink-400 transition-all"> Liked</NavLink>
-   <NavLink to="/artists"   className="hover:text-pink-400 transition-all">Artists</NavLink>
+  
+  <NavLink
+  to="/"
+  className={({ isActive }) =>
+    `transition-all hover:text-pink-400 ${
+      isActive ? " text-pink-400 border-b-2 border-pink-400": ""
+    }`
+  }
+>
+  Home
+</NavLink>
+
+<NavLink
+  to="/discover"
+  className={({ isActive }) =>
+    `transition-all hover:text-pink-400 ${
+      isActive ? " text-pink-400 border-b-2 border-pink-400" : ""
+    }`
+  }
+>
+  Discover
+</NavLink>
+
+<NavLink
+  to="/liked"
+  className={({ isActive }) =>
+    `transition-all hover:text-pink-400 ${
+      isActive ? "text-pink-400 border-b-2 border-pink-400" : ""
+    }`
+  }
+>
+  Liked
+</NavLink>
+
+<NavLink
+  to="/artists"
+  className={({ isActive }) =>
+    `transition-all hover:text-pink-400  ${
+      isActive ? " text-pink-400 border-b-2 border-pink-400" : ""
+    }`
+  }
+>
+  Artists
+</NavLink>
    
    
   </div>
