@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import tracks from '../data/track'
 
+
 const Discover = ({ setCurrentTrack, setIsPlaying }) => {
 
   const [searchQuery, setSearchQuery] = useState('')

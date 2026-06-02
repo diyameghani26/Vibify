@@ -1,93 +1,462 @@
 # Vibify 🎧
 
-✅ Features Built -
+A modern music streaming web application built with React, Vite, Tailwind CSS, and React Router.
 
-1. Navbar (Responsive)
+---
 
-Desktop: Logo left | Nav links center | Icons right
+## Overview
 
-Mobile: Logo left | Settings + Profile right
+Vibify is a frontend music streaming application focused on providing a clean, responsive, and interactive listening experience.
 
-How it works: Active navigation links are highlighted in pink to show which page the user is currently on.
+Users can:
 
-Files: src/components/Navbar.jsx
+* Browse tracks
+* Discover music by genre
+* Search songs and artists
+* Play tracks from anywhere in the app
+* Control playback through a global music player
 
-2. Bottom Navigation (Mobile Only)
+---
 
-4 buttons: Home, Discover, Artists, Liked
-Fixed at bottom 
-Active state: Pink highlight
-Files: src/components/BottomNav.jsx
+## Tech Stack
 
-3. Player Bar (Fully Working)
+* React.js
+* Vite
+* Tailwind CSS
+* React Router DOM
+* Remix Icons
 
-Desktop Version:
+---
 
-Left: Track thumbnail + name + artist
-Center: Shuffle | Prev | Play/Pause | Next | Repeat
-Right: Volume icon + slider
-Progress bar below
+# Features
 
+## Responsive Navigation Bar
 
-Mobile Version:
+### Desktop Layout
 
-Left: Track info (compact)
-Right: Play + Next button
-Progress bar below
+* Logo on the left
+* Navigation links in the center
+* Settings and profile icons on the right
 
+### Mobile Layout
 
-How it works:
+* Logo on the left
+* Settings and profile icons on the right
+* Bottom Navigation enabled
 
-HOW THE PLAYER WORKS:
+### Active Link Highlighting
 
-1. STATE MANAGEMENT (useState)
-   - isPlaying: Tracks if song is currently playing or paused
-   - progress: Tracks how much of the song has played (0-100%)
-   - volume: Tracks volume level (0 to 1)
-   - currentTrack: Stores which song is playing
+The currently active page is highlighted with a pink accent color using React Router's NavLink component.
 
-2. AUDIO ELEMENT ACCESS (useRef)
-   - useRef gives direct access to the HTML audio player
-   - Like having a remote control to the speaker
-   - Can call: play(), pause(), change volume, seek to time.
+**File**
 
-   
-*** I used useRef(new Audio()) to store a single audio player that stays the same even when the component re-renders. This allows me to control playback, pause, and track changes without creating a new audio object every time the component re-renders.
+```bash
+src/components/Navbar.jsx
+```
 
+---
 
- 3. When User Clicks Play (useEffect Flow)
+## Mobile Bottom Navigation
 
-- User clicks the Play button.
-- `handlePlay()` toggles the `isPlaying` state.
-- `isPlaying` changes from `false` to `true`.
-- The `useEffect` hook detects the change in `isPlaying`.
-- The current track's audio src is assigned to the audio player.
-- `audio.play()` is called.
-- The selected track starts playing.
-- The UI updates and the Play icon changes to a Pause icon.
+Visible only on mobile devices.
 
-Note: The Play button does not directly play the audio. It only updates the `isPlaying` state. The actual playback is handled inside `useEffect`.
+Includes:
 
-4. PROGRESS TRACKING (timeupdate event)
-   - As the song plays, the audio element fires "timeupdate" event
-   - This happens many times per second
-   - We calculate: (currentTime / totalDuration) * 100
-   - Progress bar width updates based on this percentage
-   - Shows how much of song has played
+* Home
+* Discover
+* Artists
+* Liked
 
-5. WHEN USER CLICKS NEXT
-   - Next button clicked
-   - currentTrack updates to next song
-   - useEffect detects currentTrack changed
-   - New audio loads
-   - New song starts playing
-   - Player bar shows new song info
+The active route is automatically highlighted.
 
-6. VOLUME CONTROL
-   - User moves volume slider
-   - volume state updates (0.0 to 1.0)
-   - Audio element's volume property changes
-   - Speaker volume increases or decreases
+**File**
 
+```bash
+src/components/BottomNav.jsx
+```
 
-Files: src/components/PlayerBar.jsx
+---
+
+# Home Page
+
+The Home page acts as the landing screen of Vibify.
+
+### Dynamic Greeting
+
+The greeting changes based on the user's local time.
+
+Examples:
+
+* Good Morning, Guest
+* Good Afternoon, Guest
+* Good Evening, Guest
+* Late Night Vibes 🎧
+
+### Featured Hero Section
+
+Includes:
+
+* Featured Track Banner
+* Background Artwork
+* Artist Information
+* Play Button
+* Hover Animations
+
+### Trending Now Section
+
+Displays a list of available tracks.
+
+Each track shows:
+
+* Cover Image
+* Track Name
+* Artist Name
+* Duration
+
+Users can click any track to instantly start playback.
+
+**Files**
+
+```bash
+src/pages/Home.jsx
+```
+
+---
+
+# Discover Page
+
+The Discover page helps users find music quickly.
+
+### Search Functionality
+
+Users can search tracks using:
+
+* Track Title
+* Artist Name
+
+### Genre Filtering
+
+Available Genres:
+
+* All
+* Ambient
+* Lo-fi
+* Electronic
+* Instrumental
+
+Tracks are dynamically filtered based on:
+
+* Selected Genre
+* Search Query
+
+### Responsive Music Grid
+
+Grid adapts automatically:
+
+* Mobile → 2 Columns
+* Tablet → 3 Columns
+* Desktop → 4+ Columns
+
+### Hover Effects
+
+Track cards include:
+
+* Smooth transitions
+* Cover image zoom effect
+* Hover feedback
+
+**File**
+
+```bash
+src/pages/Discover.jsx
+```
+
+---
+
+# Global Music Player
+
+The Player Bar is shared across the entire application.
+
+This means users can:
+
+* Start playback from Home
+* Navigate to Discover
+* Continue listening without interruption
+
+---
+
+## State Management
+
+Global playback state is managed inside App.jsx.
+
+### Current Track
+
+Stores the currently selected song.
+
+```js
+const [currentTrack, setCurrentTrack] = useState(tracks[0])
+```
+
+### Playback State
+
+Tracks whether music is playing or paused.
+
+```js
+const [isPlaying, setIsPlaying] = useState(false)
+```
+
+These states are passed to pages and components through props.
+
+---
+
+# How Track Selection Works
+
+### Step 1
+
+User clicks a track card.
+
+### Step 2
+
+The selected track becomes the current track.
+
+```js
+setCurrentTrack(track)
+```
+
+### Step 3
+
+Playback state changes.
+
+```js
+setIsPlaying(true)
+```
+
+### Step 4
+
+Player Bar receives updated props.
+
+### Step 5
+
+The selected song starts playing.
+
+---
+
+# Audio System
+
+The Player Bar uses:
+
+```js
+useRef(new Audio())
+```
+
+to create a single persistent audio instance.
+
+### Why useRef?
+
+The audio object remains the same between renders.
+
+Benefits:
+
+* No unnecessary recreation of audio elements
+* Smooth playback
+* Better performance
+* Easy access to play, pause, and volume controls
+
+---
+
+# Play / Pause Flow
+
+### User clicks Play
+
+```text
+Play Button
+     ↓
+setIsPlaying(true)
+     ↓
+useEffect runs
+     ↓
+audio.src updated
+     ↓
+audio.play()
+     ↓
+Song starts playing
+```
+
+### User clicks Pause
+
+```text
+Pause Button
+     ↓
+setIsPlaying(false)
+     ↓
+audio.pause()
+```
+
+---
+
+# Next & Previous Controls
+
+### Next Button
+
+```text
+Find current track index
+        ↓
+Move to next track
+        ↓
+Update currentTrack
+        ↓
+New song loads
+```
+
+### Previous Button
+
+```text
+Find current track index
+        ↓
+Move to previous track
+        ↓
+Update currentTrack
+        ↓
+New song loads
+```
+
+---
+
+# Progress Tracking
+
+The audio element emits:
+
+```js
+timeupdate
+```
+
+events continuously during playback.
+
+The application calculates:
+
+```js
+(currentTime / duration) * 100
+```
+
+This value updates the progress bar in real time.
+
+---
+
+# Volume Control
+
+### Volume Slider
+
+Controls audio volume between:
+
+```text
+0.0 → Muted
+1.0 → Maximum
+```
+
+### Mute Button
+
+Toggles:
+
+```js
+isMuted
+```
+
+and instantly updates the audio volume.
+
+---
+
+# Responsive Player Bar
+
+## Desktop
+
+Left:
+
+* Cover Image
+* Track Title
+* Artist Name
+
+Center:
+
+* Shuffle
+* Previous
+* Play / Pause
+* Next
+* Repeat
+
+Bottom:
+
+* Progress Bar
+
+Right:
+
+* Volume Control
+* Mute Toggle
+
+---
+
+## Mobile
+
+Compact layout optimized for smaller screens.
+
+Includes:
+
+* Track Information
+* Previous Button
+* Play / Pause Button
+* Next Button
+
+---
+
+# Project Structure
+
+```bash
+src
+│
+├── components
+│   ├── Navbar.jsx
+│   ├── BottomNav.jsx
+│   └── PlayerBar.jsx
+│
+├── pages
+│   ├── Home.jsx
+│   ├── Discover.jsx
+│   ├── Artists.jsx
+│   ├── Liked.jsx
+│
+├── data
+│   └── track.js
+│
+└── App.jsx
+```
+
+---
+
+## Current Status
+
+Completed:
+
+* Responsive Navbar
+* Bottom Navigation
+* Home Page
+* Discover Page
+* Search Functionality
+* Genre Filtering
+* Global Music Player
+* Track Selection
+* Progress Tracking
+* Volume Controls
+* Responsive Layouts
+* Hover Animations
+
+Upcoming:
+
+* Liked Songs Logic
+* Artist Pages
+* Playlist Support
+* Queue Management
+* Recently Played
+* Advanced Audio Controls
+
+---
+
+Built with ❤️ while learning React and modern frontend development.

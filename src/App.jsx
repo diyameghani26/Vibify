@@ -10,6 +10,7 @@ import Search from './Components/Search'
 import PlayerBar from './Components/PlayerBar'
 import { useState } from 'react'
 import tracks from './data/track'
+import ArtistsDetail from './pages/ArtistsDetail'
 
 const App = () => {
   const [currentTrack, setCurrentTrack] = useState(tracks[0])
@@ -32,6 +33,9 @@ const [isPlaying, setIsPlaying] = useState(false)
 
       <Route path="/liked" element={<Liked />} />
       <Route path="/artists" element={<Artists />} />
+
+      <Route path="/artist/:id" element={<ArtistsDetail/>}/>
+      
       <Route path="/search" element={<Search />} />
     </Routes>
 

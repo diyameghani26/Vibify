@@ -4,7 +4,7 @@ const tracks = [
     title: "Echo Wave",
     artist: "Luna Sound",
     audio: "songs/echo-wave.mp3",
-    cover: "covers/echo-wave.jpg",
+    cover: "/covers/echo-wave.jpg",
     genre: "Ambient",
     duration: "2:06"
   },
