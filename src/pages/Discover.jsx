@@ -8,7 +8,7 @@ const Discover = ({ setCurrentTrack, setIsPlaying }) => {
   const [searchQuery, setSearchQuery] = useState('')
 const [selectedGenre, setSelectedGenre] = useState('All')
 
-const genres = ['All' , 'Ambient', 'Lo-fi', 'Classical', 'Instrumental', 'Experimental' ]
+const genres = ['All' , 'Ambient', 'Lo-fi', 'Classical', 'Instrumental', 'Electronic' ]
 
 const filteredTracks = tracks.filter((track) => {
   const matchesGenre = selectedGenre === "All" || 
