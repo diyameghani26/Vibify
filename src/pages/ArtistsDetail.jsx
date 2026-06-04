@@ -199,7 +199,7 @@ const ArtistsDetail = () => {
       About Artist
     </h2>
 
-    <p className="text-gray-300 leading-7">
+    <p className="text-gray-300 text-sm md:text-base leading-5 md:leading-7">
         {artist.name} is a rising force in the world of {artist.genre.toLowerCase()} music, recognized for creating immersive soundscapes that blend emotion, creativity, and modern production. With a unique artistic vision, every track is designed to take listeners on a journey, whether it's through relaxing melodies, atmospheric textures, energetic rhythms, or deeply expressive compositions.
 
         <span className="hidden lg:inline">

@@ -24,7 +24,7 @@ const tracks = [
     title: "Reflected Light",
     artist: "Luna Sound",
     audio: "/songs/reflected-light.mp3",
-    cover: "/covers/echo-wave.jpg",
+    cover: "/covers/reflected-light.jpg",
     genre: "Ambient",
     duration: "3:44"
   },
@@ -33,7 +33,7 @@ const tracks = [
     title: "Relaxing",
     artist: "Luna Sound",
     audio: "/songs/Relaxing.mp3",
-    cover: "/covers/echo-wave.jpg",
+    cover: "/covers/realxing.jpg",
     genre: "Ambient",
     duration: "1:12"
   },
@@ -54,7 +54,7 @@ const tracks = [
     title: "Striptease",
     artist: "Lofi Paradise",
     audio: "/songs/striptease.mp3",
-    cover: "/covers/Lofi Paradise.jpg",
+    cover: "/covers/striptease.jpg",
     genre: "Lo-fi",
     duration: "4:39"
   },
@@ -63,7 +63,7 @@ const tracks = [
     title: "Sky HIGH",
     artist: "Lofi Paradise",
     audio: "/songs/kawaiiwork-skyhigh.mp3",
-    cover: "/covers/Lofi Paradise.jpg",
+    cover: "/covers/Sky-high.jpg",
     genre: "Lo-fi",
     duration: "4:30"
   },
@@ -72,7 +72,7 @@ const tracks = [
     title: "Jazz",
     artist: "Lofi Paradise",
     audio: "/songs/atlasaudio-jazz.mp3",
-    cover: "/covers/Lofi Paradise.jpg",
+    cover: "/covers/jazz.jpg",
     genre: "Lo-fi",
     duration: "1:03"
   },
@@ -81,7 +81,7 @@ const tracks = [
     title: "Chill Music",
     artist: "Lofi Paradise",
     audio: "/songs/chill-music.mp3",
-    cover: "/covers/Lofi Paradise.jpg",
+    cover: "/covers/chill-music.jpg",
     genre: "Lo-fi",
     duration: "3:31"
   },
@@ -102,7 +102,7 @@ const tracks = [
     title: "Playful Night",
     artist: "Synthwave Dreams",
     audio: "/songs/dance-playful-night.mp3",
-    cover: "/covers/neon-pulse.jpg",
+    cover: "/covers/playful-night.jpg",
     genre: "Electronic",
     duration: "1:45"
   },
@@ -111,7 +111,7 @@ const tracks = [
     title: "Charming Phonk",
     artist: "Synthwave Dreams",
     audio: "/songs/charming-phonk.mp3",
-    cover: "/covers/neon-pulse.jpg",
+    cover: "/covers/charming-phonk.jpg",
     genre: "Electronic",
     duration: "2:37"
   },
@@ -120,7 +120,7 @@ const tracks = [
     title: "Honey Kisses",
     artist: "Synthwave Dreams",
     audio: "/songs/honey-kisses.mp3",
-    cover: "/covers/neon-pulse.jpg",
+    cover: "/covers/honey-kisses.jpg",
     genre: "Electronic",
     duration: "2:36"
   },
@@ -129,7 +129,7 @@ const tracks = [
     title: "Running Night",
     artist: "Synthwave Dreams",
     audio: "/songs/running-night.mp3",
-    cover: "/covers/neon-pulse.jpg",
+    cover: "/covers/running-night.jpg",
     genre: "Electronic",
     duration: "1:52"
   },
@@ -149,3 +149,15 @@ const tracks = [
 
 export default tracks 
 
+
+
+// midnight aesthetic wallpaper
+// dreamcore night landscape
+// cinematic moonlight art
+// surreal midnight scenery
+// dark blue neon aesthetic
+// ethereal night artwork
+// ambient dreamscape
+// moody night synthwave
+// fantasy moon wallpaper
+// late night vibes aesthetic
