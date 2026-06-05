@@ -393,6 +393,38 @@ Right:
 * Mute Toggle
 
 ---
+## Liked Tracks Logic Flow
+
+1. Added a `liked` property to every track object and initialized it as `false`.
+
+2. Moved tracks data into React state in `App.jsx` using:
+
+```js
+const [allTracks, setAllTracks] = useState(tracks)
+```
+
+3. Passed `allTracks` and `setAllTracks` to the Home page through props.
+
+4. Added a heart icon for each track in the track list.
+
+5. Created a `toggleLike(id)` function that:
+
+   * Finds the clicked track using its `id`
+   * Toggles its `liked` state (`true ↔ false`)
+   * Updates the tracks state using `setAllTracks`
+
+6. Used conditional rendering to switch between:
+
+   * `ri-heart-line` for unliked tracks
+   * `ri-heart-fill` for liked tracks
+
+7. Added `e.stopPropagation()` to prevent the track from playing when the heart icon is clicked.
+
+### Result
+
+* Clicking the heart icon likes a track.
+* Clicking it again removes it from liked tracks.
+* The UI updates instantly based on the track's `liked` state.
 
 ## Mobile
 
