@@ -27,43 +27,52 @@ const ArtistsDetail = () => {
     <div className="pb-32 px-4 sm:px-6 lg:px-10 pt-6">
 
       {/* Hero Banner */}
-      <div className="relative h-64 sm:h-80 rounded-3xl overflow-hidden mb-10">
+     <div className="mb-10">
 
-        <img
-          src={artist.image}
-          alt={artist.name}
-          className="w-full h-full object-cover"
-        />
+  {/* Hero Image */}
+  <div className="relative h-56 sm:h-72 md:h-80 rounded-3xl overflow-hidden">
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+    <img
+      src={artist.image}
+      alt={artist.name}
+      className="w-full h-full object-cover"
+    />
 
-        <div className="absolute bottom-8 left-6 sm:left-10">
+    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
 
-          <p className="text-pink-400 text-sm uppercase tracking-wider">
-            Featured Artist
-          </p>
+    <div className="absolute top-4 left-4 hidden md:block md:text-xl">
+      <p className="text-pink-400 text-xs uppercase tracking-[3px]">
+        Featured Artist
+      </p>
+    </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold text-white">
-            {artist.name}
-          </h1>
+  </div>
 
-          <p className="text-pink-300 mt-2">
-            {artist.genre} • {artist.followers} Followers
-          </p>
+  {/* Artist Info Below Image */}
+  <div className="mt-5">
 
-          <div className="flex gap-4 mt-6">
-            <button className="bg-pink-500 text-white px-8 py-3 rounded-full hover:scale-105 transition-all">
-              <i className="ri-play-fill mr-1"></i>
-              Play
-            </button>
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+      {artist.name}
+    </h1>
 
-            <button className="border border-pink-500 text-pink-400 px-8 py-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
-              Follow
-            </button>
-          </div>
+    <p className="text-gray-400 mt-1 md:mt-3">
+      {artist.genre} • {artist.followers} Followers
+    </p>
 
-        </div>
-      </div>
+    <div className="flex gap-3 mt-5">
+      <button className="bg-pink-500 text-white px-6 py-2.5 rounded-full hover:scale-105 transition-all">
+        <i className="ri-play-fill mr-1"></i>
+        Play
+      </button>
+
+      <button className="border border-pink-500 text-pink-400 px-6 py-2.5 rounded-full hover:bg-pink-500 hover:text-white transition-all">
+        Follow
+      </button>
+    </div>
+
+  </div>
+
+</div>
 
       {/* Main Grid */}
       <div className="grid lg:grid-cols-3 gap-8">
