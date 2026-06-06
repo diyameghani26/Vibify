@@ -43,7 +43,7 @@ localStorage.setItem("likedTracks",
 
   const splashTimer = setTimeout(() => {
     setShowSplash(false)
-  }, 2500)
+  }, 4000)
 
   return () => {
     
