@@ -2,7 +2,7 @@ import React from 'react'
 import tracks from '../data/track'
 import { Link } from 'react-router-dom'
 
-const Home = ({ setCurrentTrack, setIsPlaying }) => {
+const Home = ({ setCurrentTrack, setIsPlaying , isPlaying , currentTrack , allTracks , setAllTracks }) => {
 
 const hour  =  new Date().getHours()
 
@@ -15,8 +15,22 @@ const greeting  =
 ? "Good Evening, Guest"
 : "Late Night Vibes 🎧"
 
+const toggleLike = (id) =>{
+  const updatedTracks = allTracks.map((track) => {
+    if(track.id === id){
+      return {
+        ...track,
+        liked:!track.liked,
+      }
+    }
+
+    return track
+  })
+  setAllTracks(updatedTracks)
+}
+
   return (
-    <div className='bg-black flex flex-col gap-6 text-white'>
+    <div className=' flex flex-col gap-6 text-white'>
       <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-4xl px-2 sm:px-6 lg:px-10 md:mt-3'>{greeting}</h1>
       
       <div className='w-full px-1 sm:px-2 lg:px-1  rounded-2xl'>
@@ -64,13 +78,29 @@ const greeting  =
       </div>
 
       {/* Play Button */}
-      <button className='w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20
+      <button 
+      
+       onClick={() => {
+    const featuredTrack = tracks.find(
+      (track) => track.title === "Neon Serenity"
+    );
+
+    setCurrentTrack(featuredTrack);
+    setIsPlaying(true);
+  }}
+      
+      className='w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20
       rounded-full bg-pink-500 hover:shadow-[0_0_20px_#e91e8c]
       flex items-center justify-center
       hover:scale-110 transition-all'>
 
-        <i className="ri-play-fill 
-        text-2xl sm:text-3xl text-white ml-1"></i>
+       <i
+  className={`text-2xl sm:text-3xl text-white  ${
+    currentTrack?.title === "Neon Serenity" && isPlaying
+      ? "ri-pause-fill"
+      : "ri-play-fill"
+  }`}
+/>
 
       </button>
 
@@ -96,7 +126,7 @@ const greeting  =
   <div 
 
   className="space-y-2">
-    {tracks.map((track) => (
+    {allTracks.map((track) => (
       <div key={track.id} 
           onClick={() => {
   setCurrentTrack(track)
@@ -116,8 +146,25 @@ const greeting  =
           <p className="text-gray-400 text-[10px] sm:text-sm">{track.artist}</p>
         </div>
         
-        {/* Duration */}
+        {/* heart icon & Duration */}
+
+    <button
+  onClick={(e) => {
+    e.stopPropagation()
+    toggleLike(track.id)
+  }}
+>
+  <i
+    className={
+      track.liked
+        ? "ri-heart-fill text-pink-500 text-lg"
+        : "ri-heart-line text-gray-400 text-lg"
+    }
+  ></i>
+</button>
+
         <span className="text-gray-400 text-sm sm:text-base">{track.duration}</span>
+        
         
       </div>
     ))}

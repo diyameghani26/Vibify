@@ -7,3 +7,29 @@
 .scrollbar-hide {
   scrollbar-width: none;
 }
+
+.beat {
+  width: 2px;
+  background: linear-gradient(to top, #a855f7, #ec4899);
+  border-radius: 999px;
+  transform-origin: center;
+  animation: beat 0.8s ease-in-out infinite;
+}
+
+.beat:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.beat:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes beat {
+  0%,100% {
+    transform: scaleY(0.5);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}

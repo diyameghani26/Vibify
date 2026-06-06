@@ -450,7 +450,7 @@ Completed:
 
 Upcoming:
 
-* Liked Songs Logic
+
 * Artist Pages
 * Playlist Support
 * Queue Management

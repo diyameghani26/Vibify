@@ -88,4 +88,4 @@ const filteredTracks = tracks.filter((track) => {
   )
 }
 
-export default Discover
+export default Discover 

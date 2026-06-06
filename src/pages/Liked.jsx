@@ -1,33 +1,37 @@
 import React from 'react'
 
-const Liked = () => {
-  const likedSongs = [
-  {
-    id: 1,
-    title: "Midnight Reverie",
-    artist: "Neon Dreams",
-    album: "Electric Avenues",
-    dateAdded: "2 days ago",
-    duration: "3:42",
-    cover: "/covers/midnight reverie.jpg",
-  },
-  {
-    id: 2,
-    title: "Sky high",
-    artist: "LUNA",
-    album: "Celestial Wanderer",
-    dateAdded: "Oct 12, 2023",
-    duration: "4:15",
-    cover: "/covers/Sky-high.jpg",
-  },
-];
+const Liked = ({
+  allTracks,
+  setAllTracks,
+  setCurrentTrack,
+  setIsPlaying
+}) => {
+
+  const likedTracks = allTracks.filter(
+    (track) => track.liked 
+  )
+
+  const removeLike = (id) => {
+    const updatedTracks = allTracks.map((track)=>{
+      if(track.id === id){
+        return {
+          ...track,
+          liked:false,
+        }
+      }
+      return track
+    })
+    setAllTracks(updatedTracks)
+  }
+  
+
   return (
     <div className="pb-32 px-4 sm:px-6 lg:px-8 pt-6">
 
-  {/* Hero */}
+  {/* hero */}
   <div className="flex flex-col md:flex-row gap-6 md:items-end">
 
-    <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl bg-gradient-to-br from-pink-400 to-pink-700 flex items-center justify-center shadow-2xl">
+    <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl bg-linear-to-br from-pink-400 to-pink-700 flex items-center justify-center shadow-2xl">
       <i className="ri-heart-fill text-white text-6xl"></i>
     </div>
 
@@ -45,7 +49,17 @@ const Liked = () => {
       </p> */}
 
       <div className="flex gap-3 mt-6">
-        <button className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-medium transition-all">
+        <button 
+    onClick={() => {
+    if (likedTracks.length === 0) {
+      alert("No liked tracks to play 🎵")
+      return
+    }
+
+    setCurrentTrack(likedTracks[0])
+    setIsPlaying(true)
+  }}
+        className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full font-medium transition-all">
           <i className="ri-play-fill mr-1"></i>
           Play All
         </button>
@@ -66,9 +80,9 @@ const Liked = () => {
         List
       </button>
 
-      <button className="text-gray-400 hover:text-white">
+      {/* <button className="text-gray-400 hover:text-white">
         Grid
-      </button>
+      </button> */}
     </div>
 
     <div className="flex items-center gap-4 text-gray-400">
@@ -82,6 +96,19 @@ const Liked = () => {
 
   </div>
 
+   {likedTracks.length === 0 && (
+        <div className="text-center py-20">
+
+          <h2 className="mt-4 text-2xl font-semibold text-white">
+            No liked tracks yet
+          </h2>
+
+          <p className="text-gray-400 mt-2">
+            Start liking tracks to see them here.
+          </p>
+        </div>
+      )}
+
   {/* Desktop Table */}
   <div className="hidden md:block mt-6">
 
@@ -93,77 +120,79 @@ const Liked = () => {
       <span>⏱</span>
     </div>
 
-    {likedSongs.map((song, index) => (
+    {likedTracks.map((track, index) => (
       <div
-        key={song.id}
+        key={track.id}
         className="grid grid-cols-[50px_3fr_2fr_2fr_80px] items-center py-3 hover:bg-white/5 rounded-xl px-2 transition-all"
       >
         <span>{index + 1}</span>
 
         <div className="flex items-center gap-3">
           <img
-            src={song.cover}
-            alt={song.title}
+            src={track.cover}
+            alt={track.title}
             className="w-12 h-12 rounded-lg object-cover"
           />
 
           <div>
-            <h3 className="text-white">{song.title}</h3>
+            <h3 className="text-white">{track.title}</h3>
             <p className="text-sm text-gray-400">
-              {song.artist}
+              {track.artist}
             </p>
           </div>
         </div>
 
         <span className="text-gray-400">
-          {song.album}
+          {track.album}
         </span>
 
         <span className="text-gray-400">
-          {song.dateAdded}
+          {track.dateAdded}
         </span>
 
         <div className="flex items-center gap-3">
           <i className="ri-heart-fill text-pink-500"></i>
-          <span>{song.duration}</span>
+          <span>{track.duration}</span>
         </div>
       </div>
     ))}
 
   </div>
 
-  {/* Mobile Songs */}
+  {/* Mobile tracks */}
   <div className="md:hidden mt-6 space-y-3">
 
-    {likedSongs.map((song) => (
+    {likedTracks.map((track) => (
       <div
-        key={song.id}
+        key={track.id}
         className="flex items-center justify-between bg-white/5 rounded-xl p-3"
       >
         <div className="flex items-center gap-3">
 
           <img
-            src={song.cover}
-            alt={song.title}
+            src={track.cover}
+            alt={track.title}
             className="w-14 h-14 rounded-lg object-cover"
           />
 
           <div>
             <h3 className="text-white font-medium">
-              {song.title}
+              {track.title}
             </h3>
 
             <p className="text-sm text-gray-400">
-              {song.artist}
+              {track.artist}
             </p>
           </div>
 
         </div>
 
         <div className="text-right">
-          <i className="ri-heart-fill text-pink-500"></i>
+         <button onClick={() => removeLike(track.id)}>
+  <i className="ri-heart-fill text-pink-500"></i>
+</button>
           <p className="text-sm text-gray-400 mt-1">
-            {song.duration}
+            {track.duration}
           </p>
         </div>
       </div>

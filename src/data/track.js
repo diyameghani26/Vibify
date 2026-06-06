@@ -8,7 +8,8 @@ const tracks = [
     audio: "/songs/echo-wave.mp3",
     cover: "/covers/echo-wave.jpg",
     genre: "Ambient",
-    duration: "2:06"
+    duration: "2:06",
+    liked: false
   },
   {
     id: "02",
@@ -17,7 +18,8 @@ const tracks = [
     audio: "/songs/ambient-flight-moon.mp3",
     cover: "/covers/ambient flight moon.jpg",
     genre: "Ambient",
-    duration: "2:18"
+    duration: "2:18",
+    liked: false
   },
   {
     id: "03",
@@ -26,7 +28,8 @@ const tracks = [
     audio: "/songs/reflected-light.mp3",
     cover: "/covers/reflected-light.jpg",
     genre: "Ambient",
-    duration: "3:44"
+    duration: "3:44",
+    liked: false,
   },
   {
     id: "04",
@@ -35,7 +38,8 @@ const tracks = [
     audio: "/songs/Relaxing.mp3",
     cover: "/covers/realxing.jpg",
     genre: "Ambient",
-    duration: "1:12"
+    duration: "1:12",
+    liked: false,
   },
 
   // LO-FI - LOFI PARADISE
@@ -47,7 +51,8 @@ const tracks = [
     audio: "/songs/Tropical-lofi-escape.mp3",
     cover: "/covers/tropical lofi escape.jpg",
     genre: "Lo-fi",
-    duration: "1:59"
+    duration: "1:59",
+    liked: false,
   },
   {
     id: "06",
@@ -56,7 +61,8 @@ const tracks = [
     audio: "/songs/striptease.mp3",
     cover: "/covers/striptease.jpg",
     genre: "Lo-fi",
-    duration: "4:39"
+    duration: "4:39",
+    liked: false,
   },
   {
     id: "07",
@@ -65,7 +71,8 @@ const tracks = [
     audio: "/songs/kawaiiwork-skyhigh.mp3",
     cover: "/covers/Sky-high.jpg",
     genre: "Lo-fi",
-    duration: "4:30"
+    duration: "4:30",
+    liked: false,
   },
   {
     id: "08",
@@ -74,7 +81,8 @@ const tracks = [
     audio: "/songs/atlasaudio-jazz.mp3",
     cover: "/covers/jazz.jpg",
     genre: "Lo-fi",
-    duration: "1:03"
+    duration: "1:03",
+    liked: false,
   },
   {
     id: "09",
@@ -83,7 +91,8 @@ const tracks = [
     audio: "/songs/chill-music.mp3",
     cover: "/covers/chill-music.jpg",
     genre: "Lo-fi",
-    duration: "3:31"
+    duration: "3:31",
+    liked: false,
   },
 
   // ELECTRONIC - SYNTHWAVE DREAMS
@@ -95,7 +104,8 @@ const tracks = [
     audio: "/songs/neon-pulse.mp3",
     cover: "/covers/neon-pulse.jpg",
     genre: "Electronic",
-    duration: "3:27"
+    duration: "3:27",
+    liked: false,
   },
   {
     id: "11",
@@ -104,7 +114,8 @@ const tracks = [
     audio: "/songs/dance-playful-night.mp3",
     cover: "/covers/playful-night.jpg",
     genre: "Electronic",
-    duration: "1:45"
+    duration: "1:45",
+    liked: false,
   },
   {
     id: "12",
@@ -113,7 +124,8 @@ const tracks = [
     audio: "/songs/charming-phonk.mp3",
     cover: "/covers/charming-phonk.jpg",
     genre: "Electronic",
-    duration: "2:37"
+    duration: "2:37",
+    liked: false,
   },
   {
     id: "13",
@@ -122,7 +134,8 @@ const tracks = [
     audio: "/songs/honey-kisses.mp3",
     cover: "/covers/honey-kisses.jpg",
     genre: "Electronic",
-    duration: "2:36"
+    duration: "2:36",
+    liked: false,
   },
   {
     id: "14",
@@ -131,7 +144,8 @@ const tracks = [
     audio: "/songs/running-night.mp3",
     cover: "/covers/running-night.jpg",
     genre: "Electronic",
-    duration: "1:52"
+    duration: "1:52",
+    liked: false,
   },
 
   // INSTRUMENTAL - ELECTRIC VIBES
@@ -143,21 +157,21 @@ const tracks = [
     audio: "/songs/rock-fun.mp3",
     cover: "/covers/rock fun.jpg",
     genre: "Instrumental",
-    duration: "3:27"
+    duration: "3:27",
+    liked: false,
+  },
+    {
+    id: "16",
+    title: "Neon Serenity",
+    artist: "Electric Vibes",
+    audio: "public/songs/neon-serenity.mp3",
+    cover: "/hero img.png",
+    genre: "Instrumental",
+    duration: "3:27",
+    liked: false,
   }
 ]
 
 export default tracks 
 
 
-
-// midnight aesthetic wallpaper
-// dreamcore night landscape
-// cinematic moonlight art
-// surreal midnight scenery
-// dark blue neon aesthetic
-// ethereal night artwork
-// ambient dreamscape
-// moody night synthwave
-// fantasy moon wallpaper
-// late night vibes aesthetic
