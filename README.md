@@ -3,7 +3,6 @@
 A modern music streaming web application built with React, Vite, Tailwind CSS, and React Router.
 
 ---
-
 ## Overview
 
 Vibify is a frontend music streaming application focused on providing a clean, responsive, and interactive listening experience.
@@ -393,6 +392,94 @@ Right:
 * Mute Toggle
 
 ---
+## Liked Tracks System
+
+### Overview
+
+Implemented a complete Liked Tracks feature that allows users to like/unlike tracks, persist their preferences using Local Storage, and manage a personalized liked playlist.
+
+### Implementation Flow
+
+1. Added a `liked` property to every track object and initialized it as `false`.
+
+2. Moved track data into React state in `App.jsx`:
+
+```js
+const [allTracks, setAllTracks] = useState(tracks)
+```
+
+3. Passed `allTracks` and `setAllTracks` through props to different pages that require track management.
+
+4. Added a heart icon to each track and created a `toggleLike(id)` function that:
+
+   * Identifies the clicked track using its `id`
+   * Toggles the `liked` state (`true ↔ false`)
+   * Updates the track list using `setAllTracks`
+
+5. Used conditional rendering to display:
+
+   * `ri-heart-line` for unliked tracks
+   * `ri-heart-fill` for liked tracks
+
+6. Added `e.stopPropagation()` to prevent tracks from playing when users click the heart icon.
+
+### Liked Songs Page
+
+1. Filtered tracks using:
+
+```js
+allTracks.filter(track => track.liked)
+```
+
+2. Displayed only liked tracks on the Liked page.
+
+3. Added an empty-state UI when no liked tracks are available.
+
+4. Implemented a **Play All** feature:
+
+   * Checks whether liked tracks exist.
+   * Plays the first liked track.
+   * Shows an alert if no liked tracks are available.
+
+### Local Storage Persistence
+
+1. Saved track data to Local Storage whenever the track state changes.
+
+2. Restored saved data when the application loads.
+
+3. Preserved liked tracks even after page refresh or browser restart.
+
+### Remove From Liked Page
+
+1. Allowed users to unlike tracks directly from the Liked page.
+
+2. Clicking the filled heart:
+
+   * Sets `liked` to `false`
+   * Updates React state
+   * Updates Local Storage
+   * Removes the track from the Liked page instantly
+
+### User Flow
+
+Home Page
+→ Like a Track ❤️
+→ Track added to Liked Songs
+→ Data saved to Local Storage
+→ Refresh Page
+→ Liked Songs remain saved
+→ Open Liked Page
+→ Play All or Play Individual Tracks
+→ Unlike ❤️
+→ Track removed instantly
+
+### Result
+
+* Users can like and unlike tracks seamlessly.
+* Liked tracks persist across page refreshes using Local Storage.
+* The Liked page updates automatically based on track state.
+* Tracks can be removed directly from the Liked playlist.
+* The UI stays synchronized with application state in real time.
 
 ## Mobile
 
