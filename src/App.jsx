@@ -14,6 +14,8 @@ import ArtistsDetail from './pages/ArtistsDetail'
 import SplashScreen from './Components/SplashScreen'
 
 const App = () => {
+
+   const [searchQuery, setSearchQuery] = useState('')
   const [showSplash, setShowSplash] = useState( true);
 const [showBeats] = useState(true);
 
@@ -36,19 +38,18 @@ localStorage.setItem("likedTracks",
 )
   },[allTracks])
 
-  useEffect(() => {
+ useEffect(() => {
 
-  if (window.innerWidth >= 768) return
-
+  if (window.innerWidth >= 768) {
+    setShowSplash(false)
+    return
+  }
 
   const splashTimer = setTimeout(() => {
     setShowSplash(false)
   }, 3000)
 
-  return () => {
-    
-    clearTimeout(splashTimer)
-  }
+  return () => clearTimeout(splashTimer)
 
 }, [])
 
@@ -58,7 +59,7 @@ if(showSplash){
   return (
    <div className="bg-[#0e0e0e] min-h-screen">
 
-  <Navbar />
+  <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
   <div className=' px-4 font-sans'>
     <Routes>
@@ -69,11 +70,15 @@ if(showSplash){
   setCurrentTrack={setCurrentTrack}
   isPlaying={isPlaying}
   setIsPlaying={setIsPlaying}
+  searchQuery={searchQuery}
 />} />
 
 
       <Route path="/discover" element={<Discover setCurrentTrack={setCurrentTrack}
-  setIsPlaying={setIsPlaying}/>} />
+  setIsPlaying={setIsPlaying}
+  searchQuery={searchQuery}
+   setSearchQuery={setSearchQuery}
+  />} />
 
 
       <Route path="/liked" element={<Liked 
@@ -81,12 +86,13 @@ if(showSplash){
       setIsPlaying={setIsPlaying}
       setAllTracks={setIsPlaying}
       setCurrentTrack={setCurrentTrack}
+       searchQuery={searchQuery}
       />} />
       <Route path="/artists" element={<Artists />} />
 
       <Route path="/artist/:id" element={<ArtistsDetail/>}/>
       
-      <Route path="/search" element={<Search />} />
+     <Route path="/search" element={<Search setCurrentTrack={setCurrentTrack} setIsPlaying={setIsPlaying} />} />
     </Routes>
 
 <PlayerBar

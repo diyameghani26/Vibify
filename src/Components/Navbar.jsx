@@ -2,10 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
 import { APP_NAME, LOGO_PATH } from '../constants/config'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+    const navigate = useNavigate()
   return (
-
 
 <>
 {/* desktop nav */}
@@ -80,9 +81,12 @@ const Navbar = () => {
 
   {/* Icons */}
   <div className='flex items-center gap-10'>
-    <i className="ri-notification-4-line text-2xl hover:text-pink-400 transition-all"></i>
+   
+      <i className="ri-search-line text-2xl hover:text-pink-400 transition-all"
+       onClick={() => navigate('/search')}
+      ></i>
 
-    <i className="ri-settings-4-line text-2xl hover:text-pink-400 transition-all"></i>
+   
 
     <div className='w-11 h-11 rounded-full bg-pink-400/20 
     flex items-center justify-center border border-pink-300/20'>
@@ -106,13 +110,15 @@ bg-black text-white px-2 py-3'>
   {/* Icons */}
 <div className='flex items-center '>
 
-  {/* Settings */}
+  {/* Search */}
   <div className='w-10 h-10 rounded-full 
   bg-pink-400/10 border border-pink-400/10
   flex items-center justify-center'>
 
-    <i className="ri-settings-4-line text-xl 
-    hover:text-pink-400 transition-all"></i>
+    
+      <i className="ri-search-line text-2xl hover:text-pink-400 transition-all"
+       onClick={() => navigate('/search')}
+      ></i>
   </div>
 
   {/* User */}

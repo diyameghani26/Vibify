@@ -100,7 +100,7 @@ const Liked = ({
     </div>
 
     <div className="flex items-center gap-4 text-gray-400">
-      <i className="ri-search-line text-lg"></i>
+      {/* <i className="ri-search-line text-lg"></i> */}
 
       <button className="flex items-center gap-2 hover:text-white">
         Recents
@@ -153,9 +153,7 @@ const Liked = ({
           {track.album}
         </span>
 
-        <span className="text-gray-400">
-          {track.dateAdded}
-        </span>
+       
 
         <div className="flex items-center gap-3">
           <i className="ri-heart-fill text-pink-500"></i>

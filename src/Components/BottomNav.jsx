@@ -6,11 +6,12 @@ const BottomNav = () => {
   return (
     <>
     
-<div className="cursor-pointer fixed bottom-0 left-1/2 -translate-x-1/2 
+<div className="fixed bottom-0 left-1/2 -translate-x-1/2 
 w-full h-16  
 bg-black  
 text-white flex items-center justify-around 
-md:hidden z-50">
+md:hidden  {/* ← 640px-767px show, 768px+ hide */}
+z-50">
 
   {/* Home */}
   <NavLink
