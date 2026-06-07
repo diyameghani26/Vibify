@@ -321,6 +321,49 @@ New song loads
 
 ---
 
+## Shuffle Playback Logic
+
+A shuffle feature was added to the music player to play tracks in a random order.
+
+### How It Works
+
+1. When the Shuffle button is clicked, the application first checks if more than one track is available.
+
+2. The index of the currently playing track is found using `findIndex()`.
+
+3. A random index is generated using:
+
+```js
+Math.floor(Math.random() * allTracks.length)
+```
+
+4. The generated random index is compared with the current track index.
+
+5. If both indexes are the same, a new random index is generated to avoid replaying the currently playing track.
+
+6. Once a different random track is found:
+
+   * The selected track becomes the current track.
+   * Playback starts automatically.
+
+### Flow
+
+Shuffle Button Click
+→ Find Current Track Index
+→ Generate Random Index
+→ Check If Same As Current Track
+→ If Same, Generate Again
+→ Select Random Track
+→ Update Current Track
+→ Start Playback
+
+### Result
+
+* Tracks play in a random order.
+* The currently playing track is not selected again during the same shuffle action.
+* Playback starts immediately after a random track is chosen.
+
+
 # Progress Tracking
 
 The audio element emits:
