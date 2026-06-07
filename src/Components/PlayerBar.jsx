@@ -7,7 +7,9 @@ const PlayerBar = ({
   currentTrack,
   setCurrentTrack,
   isPlaying,
-  setIsPlaying
+  setIsPlaying,
+  allTracks,
+  setAllTracks
 }) => {
   
   const [progress, setProgress] = useState(0)
@@ -23,6 +25,23 @@ const [duration, setDuration] = useState(0)
 
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 }
+
+
+  const handelShuffle =()=>{
+
+    if(allTracks.length <= 1) return
+    const currentIndex = allTracks.findIndex(
+      (track) => track.id === currentTrack.id
+    )
+    let randomIndex 
+
+    do{
+      randomIndex = Math.floor(Math.random() * allTracks.length)
+    }while (randomIndex === currentIndex)
+
+setCurrentTrack(allTracks[randomIndex])
+setIsPlaying(true)
+  }
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying)
@@ -139,18 +158,30 @@ const [duration, setDuration] = useState(0)
 
       {/* DESKTOP - Only large screens */}
       <div className="hidden sm:block sm:bottom-1  md:block lg:block fixed bottom-0 w-full bg-[#111111] border-t border-pink-500/20 px-4 py-1">
+
         <div className="flex items-center justify-between gap-4">
+
           <div className="flex items-center gap-3 w-48">
+
             <img src={currentTrack.cover} className="w-12 h-12 rounded" />
+
             <div className="min-w-0">
+
               <p className="text-white text-sm font-semibold truncate md:text-xl">{currentTrack.title}</p>
+
               <p className="text-gray-400 text-xs md:text-base truncate">{currentTrack.artist}</p>
+
             </div>
           </div>
           
           <div className="flex flex-col  items-center gap-2  flex-1">
+
             <div className="flex items-center gap-6 translate-y-3 ">
-              <button className="text-gray-400 hover:text-pink-500">
+
+              <button 
+              onClick={handelShuffle}
+              className="text-gray-400 hover:text-pink-500">
+
                 <i className="ri-shuffle-line text-xl"></i>
               </button>
               <button onClick={handlePrev} className="text-gray-400 hover:text-white">

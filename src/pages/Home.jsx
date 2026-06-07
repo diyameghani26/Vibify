@@ -112,7 +112,7 @@ const toggleLike = (id) =>{
 
 <div className=' mt-2 flex flex-row items-center justify-between'>
 
-  <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold'> Trending Now </h1>
+  <h1 className=' px-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold'> Trending Now </h1>
 
    <Link to="/discover" ><h2  className='text-sm sm:text-base md:text-xl lg:text-xl font-semibold text-pink-400'>
     View All
@@ -120,7 +120,7 @@ const toggleLike = (id) =>{
 </Link>
 </div>
 
-<div className=" px-4 sm:px-6 lg:px-10">
+<div className="  sm:px-4 lg:px-10">
  
   
   <div 

@@ -23,6 +23,18 @@ const Liked = ({
     })
     setAllTracks(updatedTracks)
   }
+
+  const  handleShuffle =()=>{
+
+    if(likedTracks.length === 0){
+      alert("No liked songs to shuffle")
+    return
+    }
+    const randomIndex = Math.floor(Math.random()*likedTracks.length)
+
+  setCurrentTrack(likedTracks[randomIndex])
+  setIsPlaying(true)
+  }
   
 
   return (
@@ -64,8 +76,10 @@ const Liked = ({
           Play All
         </button>
 
-        <button className="w-12 h-12 rounded-full border border-gray-700 hover:border-pink-500 flex items-center justify-center transition-all">
-          <i className="ri-shuffle-line text-white"></i>
+        <button 
+        onClick={handleShuffle}
+        className="w-12 h-12 rounded-full border border-gray-700 hover:border-pink-500 flex items-center justify-center transition-all">
+          <i className="ri-shuffle-line text-white  hover:text-pink-500"></i>
         </button>
       </div>
     </div>
@@ -112,18 +126,11 @@ const Liked = ({
   {/* Desktop Table */}
   <div className="hidden md:block mt-6">
 
-    <div className="grid grid-cols-[50px_3fr_2fr_2fr_80px] text-sm text-gray-500 border-b border-white/10 pb-3">
-      <span>#</span>
-      <span>Title</span>
-      <span>Album</span>
-      <span>Date Added</span>
-      <span>⏱</span>
-    </div>
 
     {likedTracks.map((track, index) => (
       <div
         key={track.id}
-        className="grid grid-cols-[50px_3fr_2fr_2fr_80px] items-center py-3 hover:bg-white/5 rounded-xl px-2 transition-all"
+        className="grid grid-cols-[50px_3fr_2fr_2fr_80px]  text-white/70 items-center py-3 hover:bg-white/5 rounded-xl px-2 transition-all"
       >
         <span>{index + 1}</span>
 

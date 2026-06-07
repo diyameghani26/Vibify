@@ -5,7 +5,7 @@ const SplashScreen = ({ showBeats }) => {
       <div className="relative flex items-center justify-center">
 
 {showBeats && (
-  <div className="absolute flex items-center justify-center gap-[2px] w-[600px] z-0">
+  <div className="absolute flex items-center justify-center gap-0.5 w-150 z-0">
 
     {[4,6,10,16,24,34,46,34,24,16,10,6,4,8,14,28,18,12,18,28,14,8,4,6,10,16,24,34,46,34,24,16,10,6,4].map((height, index) => (
       <div

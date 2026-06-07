@@ -43,7 +43,7 @@ localStorage.setItem("likedTracks",
 
   const splashTimer = setTimeout(() => {
     setShowSplash(false)
-  }, 4000)
+  }, 3000)
 
   return () => {
     
@@ -94,6 +94,8 @@ if(showSplash){
   setCurrentTrack={setCurrentTrack}
   isPlaying={isPlaying}
   setIsPlaying={setIsPlaying}
+  allTracks={allTracks}
+  setAllTracks={setAllTracks}
 />
 
   </div>
