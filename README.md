@@ -363,6 +363,48 @@ Shuffle Button Click
 * The currently playing track is not selected again during the same shuffle action.
 * Playback starts immediately after a random track is chosen.
 
+## 🔁 Repeat Mode Logic
+
+A repeat feature was implemented in the Player Bar to control playback behavior when a track ends.
+
+### How It Works
+
+1. The repeat button cycles through three modes:
+
+   * None
+   * Repeat All
+   * Repeat One
+
+2. When the current track finishes playing, the application checks the active repeat mode.
+
+3. Based on the selected mode:
+
+   * **None:** Playback stops.
+   * **Repeat All:** The next track starts automatically.
+   * **Repeat One:** The same track restarts from the beginning.
+
+4. The progress bar and playback state are updated accordingly to keep the UI synchronized with the audio.
+
+### Flow
+
+Track Ends
+
+→ Check Repeat Mode
+
+→ None → Stop Playback
+
+→ Repeat All → Play Next Track
+
+→ Repeat One → Restart Current Track
+
+### Result
+
+* Users can choose how playback behaves after a song ends.
+* Continuous listening is supported through Repeat All mode.
+* Individual tracks can be looped using Repeat One mode.
+* Audio state and progress tracking remain synchronized during transitions.
+
+
 
 # Progress Tracking
 
