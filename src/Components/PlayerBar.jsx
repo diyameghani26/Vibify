@@ -28,14 +28,14 @@ const handleRepeat = () => {
   else setRepeatMode('none')
 }
 
-// ---------------- Format time
+//Format time
 const formatTime = (time) => {
   const minutes = Math.floor(time / 60)
   const seconds = Math.floor(time % 60)
   return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 }
 
-// ---------------- Shuffle
+// Shuffle
 const handelShuffle = () => {
   if (allTracks.length <= 1) return
 
@@ -52,17 +52,17 @@ const handelShuffle = () => {
   setIsPlaying(true)
 }
 
-// ---------------- Play / Pause
+// Play / Pause
 const handlePlay = () => {
   setIsPlaying(!isPlaying)
 }
 
-// ---------------- Mute
+//  Mute
 const handelMute = () => {
   setIsMuted(!isMuted)
 }
 
-// ---------------- Next
+//Next
 const handleNext = () => {
   const currentIndex = tracks.findIndex(t => t.id === currentTrack.id)
   const nextIndex =
@@ -71,7 +71,7 @@ const handleNext = () => {
   setCurrentTrack(tracks[nextIndex])
 }
 
-// ---------------- Prev
+// Prev
 const handlePrev = () => {
   const currentIndex = tracks.findIndex(t => t.id === currentTrack.id)
   const prevIndex =
@@ -80,7 +80,7 @@ const handlePrev = () => {
   setCurrentTrack(tracks[prevIndex])
 }
 
-// ---------------- Progress tracker
+//  Progress tracker
 useEffect(() => {
   const audio = audioRef.current
 
@@ -96,12 +96,12 @@ useEffect(() => {
   return () => audio.removeEventListener('timeupdate', updateProgress)
 }, [])
 
-// ---------------- Volume control
+// Volume control
 useEffect(() => {
   audioRef.current.volume = isMuted ? 0 : volume
 }, [isMuted, volume])
 
-// ---------------- Play sync + reset fix
+// Play sync + reset fix
 useEffect(() => {
   const audio = audioRef.current
 
@@ -112,12 +112,12 @@ useEffect(() => {
     audio.pause()
   }
 
-  // reset UI on track change
+
   setProgress(0)
   setCurrentTime(0)
 }, [isPlaying, currentTrack])
 
-// ---------------- Repeat logic FIX (IMPORTANT)
+// Repeat logic 
 useEffect(() => {
   const audio = audioRef.current
 

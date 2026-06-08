@@ -12,6 +12,7 @@ import { useState} from 'react'
 import tracks from './data/track'
 import ArtistsDetail from './pages/ArtistsDetail'
 import SplashScreen from './Components/SplashScreen'
+import Profile from './pages/profile'
 
 const App = () => {
 
@@ -80,7 +81,6 @@ if(showSplash){
    setSearchQuery={setSearchQuery}
   />} />
 
-
       <Route path="/liked" element={<Liked 
       allTracks={allTracks} 
       setIsPlaying={setIsPlaying}
@@ -93,9 +93,13 @@ if(showSplash){
       <Route path="/artist/:id" element={<ArtistsDetail/>}/>
       
      <Route path="/search" element={<Search setCurrentTrack={setCurrentTrack} setIsPlaying={setIsPlaying} />} />
+
+      <Route path="/profile" element={<Profile/>}/>
     </Routes>
+   
 
 <PlayerBar
+
   currentTrack={currentTrack}
   setCurrentTrack={setCurrentTrack}
   isPlaying={isPlaying}
