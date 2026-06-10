@@ -1,6 +1,40 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+    const navigate = useNavigate();
+
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [rememberMe, setRememberMe] = useState(false)
+
+const handleLogin = () => {
+  if (!email || !password) {
+    alert("Please fill all fields")
+    return
+  }
+
+  if (rememberMe) {
+    localStorage.setItem("email", email)
+    localStorage.setItem("password", password)
+  } else {
+    localStorage.removeItem("email")
+    localStorage.removeItem("password")
+  }
+
+  console.log("Logged In")
+  navigate("/")
+}
+
+useEffect(() => {
+  const savedEmail = localStorage.getItem("email")
+  const savedPassword = localStorage.getItem("password")
+
+  if (savedEmail) setEmail(savedEmail)
+  if (savedPassword) setPassword(savedPassword)
+}, [])
+
   return (
     <div className="  bg-linear-to-br from-black via-[#0a0a0a] to-[#140014] flex items-center justify-center px-4 py-8">
       
@@ -18,6 +52,8 @@ const Profile = () => {
         {/* Email */}
         <input
           type="email"
+          value={email}
+  onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
           className="w-full h-13 px-4 md:b-8 mb-4  rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder:text-gray-500 focus:outline-none focus:border-pink-500"
         />
@@ -25,6 +61,8 @@ const Profile = () => {
         {/* Password */}
         <input
           type="password"
+           value={password}
+  onChange={(e) => setPassword(e.target.value)}
           placeholder="••••••••"
           className="w-full h-13 px-4 rounded-lg bg-zinc-900 border border-zinc-800 text-white placeholder:text-gray-500 focus:outline-none focus:border-pink-500"
         />
@@ -32,7 +70,9 @@ const Profile = () => {
         {/* Remember + Forgot */}
         <div className="flex items-center justify-between mt-10 text-sm">
           <label className="flex text-base items-center gap-2 text-gray-300">
-            <input type="checkbox"  className="accent-pink-500" />
+            <input type="checkbox" 
+             checked={rememberMe}
+  onChange={(e) => setRememberMe(e.target.checked)} className="accent-pink-500" />
             Remember me
           </label>
 
@@ -42,7 +82,9 @@ const Profile = () => {
         </div>
 
         {/* Login Button */}
-        <button className="w-full h-12 text-xl bg-pink-600 hover:bg-pink-500 transition rounded-lg text-white font-semibold mt-6">
+        <button 
+        onClick={handleLogin}
+        className="w-full h-12 text-xl bg-pink-600 hover:bg-pink-500 transition rounded-lg text-white font-semibold mt-6">
           Log In
         </button>
 
@@ -79,6 +121,6 @@ const Profile = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Profile;

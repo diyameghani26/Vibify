@@ -1,9 +1,12 @@
 import React from 'react'
 import tracks from '../data/track'
+import HomeSkeleton from '../Components/HomeSkeleton'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = ({ setCurrentTrack, setIsPlaying , isPlaying , currentTrack , allTracks , setAllTracks }) => {
 
+   const [loading, setLoading] = useState(true)
 const hour  =  new Date().getHours()
 
 const greeting  = 
@@ -28,8 +31,15 @@ const toggleLike = (id) =>{
   })
   setAllTracks(updatedTracks)
 }
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
 
-  return (
+  if (loading) {
+    return <HomeSkeleton />
+  } return (
     <div className=' flex flex-col gap-6 text-white'>
       <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-4xl px-2 sm:px-6 lg:px-10 md:mt-3'>{greeting}</h1>
       
