@@ -23,7 +23,7 @@ const Navbar = () => {
     />
   </div>
 
-  <h1 className='text-2xl font-semibold tracking-wide  hover:text-pink-400 transition-all"'>
+  <h1 className='text-3xl font-semibold tracking-wide  hover:text-pink-400 transition-all"'>
   {APP_NAME}
   </h1>
 
@@ -106,11 +106,11 @@ bg-black text-white px-2 py-3'>
     <div className='w-10 h-10'>
       <img src="/vibify.png" alt="logo" className='w-full h-full object-cover' />
     </div>
-    <h1 className='text-lg font-semibold tracking-wide'>Vibify</h1>
+    <h1 className='text-2xl font-semibold tracking-wide'>Vibify</h1>
   </div>
 
   {/* Icons */}
-<div className='flex items-center '>
+<div className='flex items-center gap-3 '>
 
   {/* Search */}
   <div className='w-10 h-10 rounded-full 

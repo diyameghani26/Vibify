@@ -1,5 +1,7 @@
 import artists from "../data/artists";
 import { useNavigate } from 'react-router-dom'
+import { useEffect , useState} from "react";
+import ArtistsSkeleton from "../Components/skeletons/AtistSkeleton";
 
 const Artists = () => {
    const navigate = useNavigate()
@@ -7,6 +9,17 @@ const Artists = () => {
   const handleArtistClick = (artist) => {
     navigate(`/artist/${artist.id}`)
   }
+
+   const [loading, setLoading] = useState(true)
+    useEffect(() => {
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000)
+    }, [])
+
+   if (loading) {
+  return <ArtistsSkeleton />
+} 
   return (
     <div className="bg-black/30 min-h-screen text-white pb-20 md:px-4 sm:px-8 py-3 md:py-6">
 

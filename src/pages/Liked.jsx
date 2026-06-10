@@ -1,4 +1,6 @@
 import React from 'react'
+import LikedSkeleton from '../Components/skeletons/LikedSkeleton'
+import { useState, useEffect } from 'react'
 
 const Liked = ({
   allTracks,
@@ -36,6 +38,19 @@ const Liked = ({
   setIsPlaying(true)
   }
   
+  const [loading, setLoading] = useState(true)
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false)
+  }, 1500)
+
+  return () => clearTimeout(timer)
+}, [])
+
+if (loading) {
+  return <LikedSkeleton />
+}
 
   return (
     <div className="pb-32 px-4 sm:px-6 lg:px-8 pt-6">
@@ -155,10 +170,10 @@ const Liked = ({
 
        
 
-        <div className="flex items-center gap-3">
-          <i className="ri-heart-fill text-pink-500"></i>
-          <span>{track.duration}</span>
-        </div>
+        <div className="flex items-center justify-end gap-3">
+  <i className="ri-heart-fill text-pink-500"></i>
+  <span>{track.duration}</span>
+</div>
       </div>
     ))}
 

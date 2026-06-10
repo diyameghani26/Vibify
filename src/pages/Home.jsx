@@ -1,6 +1,6 @@
 import React from 'react'
 import tracks from '../data/track'
-import HomeSkeleton from '../Components/HomeSkeleton'
+import HomeSkeleton from '../Components/skeletons/HomeSkeleton'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -41,7 +41,7 @@ const toggleLike = (id) =>{
     return <HomeSkeleton />
   } return (
     <div className=' flex flex-col gap-6 text-white'>
-      <h1 className='text-xl sm:text-3xl md:text-4xl lg:text-4xl px-2 sm:px-6 lg:px-10 md:mt-3'>{greeting}</h1>
+      <h1 className='text-xl mt-5 sm:text-3xl md:text-4xl lg:text-4xl px-2 sm:px-6 lg:px-10 md:mt-3'>{greeting}</h1>
       
       <div className='w-full px-1 sm:px-2 lg:px-1  rounded-2xl'>
 

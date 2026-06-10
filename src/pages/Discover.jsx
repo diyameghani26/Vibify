@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import tracks from '../data/track'
+import DiscoverSkeleton from '../Components/skeletons/DiscoverSkeleton'
+import { useEffect } from 'react'
 
 const Discover = ({ setCurrentTrack, setIsPlaying }) => {
   const [selectedGenre, setSelectedGenre] = useState('All')
@@ -12,6 +14,16 @@ const Discover = ({ setCurrentTrack, setIsPlaying }) => {
     return selectedGenre === "All" || track.genre === selectedGenre
   })
 
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
+
+  if (loading) {
+  return <DiscoverSkeleton />
+}
   return (
     <div className='pb-34 md:pb-29 px-4'>
       {/* Genre Pills */}
