@@ -109,19 +109,10 @@ if (loading) {
         List
       </button>
 
-      {/* <button className="text-gray-400 hover:text-white">
-        Grid
-      </button> */}
+   
     </div>
 
-    <div className="flex items-center gap-4 text-gray-400">
-      {/* <i className="ri-search-line text-lg"></i> */}
-
-      <button className="flex items-center gap-2 hover:text-white">
-        Recents
-        <i className="ri-arrow-down-s-line"></i>
-      </button>
-    </div>
+  
 
   </div>
 

@@ -145,10 +145,12 @@ useEffect(() => {
   return () => audio.removeEventListener('ended', handleEnd)
 }, [repeatMode, currentTrack])
   return (
+   
     <>
       {/* MOBILE - Only < 640px */}
-      <div className="fixed block bottom-16 sm:hidden w-full bg-[#111111] border-t border-pink-500/20 px-6 mr-6 py-2 z-50">
-        <div className="flex items-center justify-between gap-2">
+      <div className="fixed block bottom-16 bg-linear-to-r from-[#0f0f0f] via-[#ff0697] to-[#0f0f0f]
+border-t border-pink-500/80 sm:hidden w-full px-2  py-2   -ml-3 rounded-2xl">
+        <div className="flex items-center justify-between gap-2 "> 
           
           {/* LEFT - Track Info */}
           <div className="flex items-center gap-2 flex-1 min-w-0">

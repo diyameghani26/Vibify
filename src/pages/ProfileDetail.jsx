@@ -85,7 +85,10 @@ const ProfileDetail = ({ allTracks = [] }) => {
         </div>
 
         {/* Liked Songs */}
-        <div className="mt-6 bg-zinc-900/50 border border-zinc-800 rounded-3xl p-6">
+        <div 
+          onClick={() => navigate('/liked')}
+        
+        className="mt-6 bg-zinc-900/50 border border-zinc-800 rounded-3xl p-6">
 
           <p className="text-gray-400 text-sm uppercase tracking-wider">
             Music
@@ -94,7 +97,9 @@ const ProfileDetail = ({ allTracks = [] }) => {
           <div className="mt-4 flex items-center justify-between">
 
             <div>
-              <h3 className="text-xl font-semibold">
+              <h3 
+              
+              className="text-xl font-semibold">
                 Liked Songs
               </h3>
 
@@ -103,7 +108,9 @@ const ProfileDetail = ({ allTracks = [] }) => {
               </p>
             </div>
 
-            <span className="text-4xl font-bold text-pink-400">
+            <span 
+            
+            className="text-4xl font-bold text-pink-400">
               {likedSongs}
             </span>
 
