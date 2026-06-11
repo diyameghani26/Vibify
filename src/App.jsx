@@ -13,6 +13,7 @@ import tracks from './data/track'
 import ArtistsDetail from './pages/ArtistsDetail'
 import SplashScreen from './Components/SplashScreen'
 import Profile from './pages/profile'
+import ProfileDetail from "./pages/ProfileDetail"
 
 const App = () => {
 
@@ -95,6 +96,7 @@ if(showSplash){
      <Route path="/search" element={<Search setCurrentTrack={setCurrentTrack} setIsPlaying={setIsPlaying} />} />
 
       <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile-detail" element={<ProfileDetail   allTracks={allTracks}  />} />
     </Routes>
    
 

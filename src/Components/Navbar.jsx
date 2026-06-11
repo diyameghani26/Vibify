@@ -3,9 +3,13 @@ import { NavLink } from 'react-router-dom'
 import 'remixicon/fonts/remixicon.css'
 import { APP_NAME, LOGO_PATH } from '../constants/config'
 import { useNavigate } from 'react-router-dom'
+import ProfileDetail from '../pages/ProfileDetail'
 
 const Navbar = () => {
     const navigate = useNavigate()
+  
+
+
   return (
 
 <>
@@ -88,11 +92,26 @@ const Navbar = () => {
 
    
 
-    <div className='w-11 h-11 rounded-full bg-pink-400/20 
+    <div
+  className='w-11 h-11 rounded-full bg-pink-400/20 
     flex items-center justify-center border border-pink-300/20'>
-      <i 
-       onClick={() => navigate('/profile')}
-      className="ri-user-3-line text-2xl text-pink-300"></i>
+
+    <div
+  className="w-11 h-11 rounded-full bg-pink-400/20
+  flex items-center justify-center border border-pink-300/20 cursor-pointer"
+  onClick={() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn")
+
+    if (isLoggedIn) {
+      navigate("/profile-detail")
+    } else {
+      navigate("/profile")
+    }
+  }}
+>
+  <i className="ri-user-3-line text-2xl text-pink-300"></i>
+</div>
+     
     </div>
   </div>
 
@@ -116,6 +135,7 @@ bg-black text-white px-2 py-3'>
   <div className='w-10 h-10 rounded-full 
   bg-pink-400/10 border border-pink-400/10
   flex items-center justify-center'>
+    
     <i className={`ri-search-line text-2xl transition-all ${
       location.pathname === "/search"
         ? "text-pink-400"
@@ -128,15 +148,28 @@ bg-black text-white px-2 py-3'>
   {/* User */}
   <div className='w-10 h-10 rounded-full 
   bg-pink-400/10 border border-pink-400/10
-  flex items-center justify-center'>
+  flex items-center justify-center'
+
+  onClick={() => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn")
+  localStorage.setItem("isLoggedIn", "true");
+
+  if (isLoggedIn) {
+    navigate("/profile-detail")
+  } else {
+    navigate("/profile")
+  }
+}}>
+
 
     <i className={`ri-user-3-line text-xl 
     hover:text-pink-400 transition-all ${
-      location.pathname === "/profle"
+        location.pathname === "/profile" ||
+      location.pathname === "/profile-detail"
         ? "text-pink-400"
         : "text-white hover:text-pink-400"
     }`}
-    onClick={() => navigate('/profile')}
+    
     ></i>
   </div>
 
