@@ -558,6 +558,50 @@ Home Page
 → Unlike ❤️
 → Track removed instantly
 
+## Login Flow
+User enters email and password.
+Basic validation checks if fields are filled.
+On successful login:
+Email is stored in localStorage.
+Login status (isLoggedIn) is stored in localStorage.
+User is redirected to the Home page.
+If "Remember Me" is enabled, credentials remain saved for future sessions.
+
+## Profile Details Flow
+Profile icon checks the user's login status.
+If logged in → navigates to Profile Details page.
+If not logged in → redirects to Login page.
+Profile Details page:
+Reads user email from localStorage.
+Generates username from the email.
+Displays total liked songs dynamically from app state.
+Provides Dark Mode and Notifications preference toggles.
+Logout:
+Clears stored login data from localStorage.
+Redirects user back to the Login page.
+
+## Flow Diagram
+
+Login Page
+    ↓
+Enter Email & Password
+    ↓
+Store User Data (localStorage)
+    ↓
+Home Page
+    ↓
+Profile Icon Click
+    ↓
+Profile Details
+    ↓
+View User Info & Preferences
+    ↓
+Logout
+    ↓
+Clear localStorage
+    ↓
+Login Page
+
 ### Result
 
 * Users can like and unlike tracks seamlessly.
@@ -603,31 +647,7 @@ src
 
 ---
 
-## Current Status
 
-Completed:
-
-* Responsive Navbar
-* Bottom Navigation
-* Home Page
-* Discover Page
-* Search Functionality
-* Genre Filtering
-* Global Music Player
-* Track Selection
-* Progress Tracking
-* Volume Controls
-* Responsive Layouts
-* Hover Animations
-
-Upcoming:
-
-
-* Artist Pages
-* Playlist Support
-* Queue Management
-* Recently Played
-* Advanced Audio Controls
 
 ---
 

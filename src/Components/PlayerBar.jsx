@@ -149,7 +149,7 @@ useEffect(() => {
     <>
       {/* MOBILE - Only < 640px */}
       <div className="fixed block bottom-16 bg-linear-to-r from-[#0f0f0f] via-[#ff0697] to-[#0f0f0f]
-border-t border-pink-500/80 sm:hidden w-full px-2  py-2   -ml-3 rounded-2xl">
+ sm:hidden w-full px-2  py-2   -ml-3 rounded-2xl">
         <div className="flex items-center justify-between gap-2 "> 
           
           {/* LEFT - Track Info */}
