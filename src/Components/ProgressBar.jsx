@@ -5,6 +5,7 @@ const ProgressBar = ({
   currentTime,
   duration,
   formatTime,
+  handleSeek
 }) => {
   return (
     <div className="w-full sm:hidden md:block">
@@ -13,12 +14,14 @@ const ProgressBar = ({
         <span>{formatTime(duration)}</span>
       </div>
 
-      <div className="h-1 bg-gray-700 rounded-full overflow-hidden mb-3">
-        <div
-          className="h-full bg-pink-500"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+    <input
+  type="range"
+  min="0"
+  max="100"
+  value={progress}
+  onChange={handleSeek}
+  className="w-full accent-pink-500 cursor-pointer"
+/>
     </div>
   );
 };

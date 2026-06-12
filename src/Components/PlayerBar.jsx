@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import PlayerBarMobile from "./PlayerBarMobile";
 import PlayerBarDesktop from "./PlayerBarDesktop";
@@ -29,6 +26,7 @@ const PlayerBar = ({
         handlePlay={player.handlePlay}
         handleNext={player.handleNext}
         handlePrev={player.handlePrev}
+        handleSeek={player.handleSeek}
       />
 
       <PlayerBarDesktop
@@ -48,6 +46,7 @@ const PlayerBar = ({
         setVolume={player.setVolume}
         isMuted={player.isMuted}
         handleMute={player.handleMute}
+        handleSeek={player.handleSeek}
       />
     </>
   );

@@ -16,6 +16,7 @@ const useAudioPlayer = (
 
   const audioRef = useRef(new Audio());
 
+
   // Repeat
   const handleRepeat = () => {
     if (repeatMode === "none") setRepeatMode("all");
@@ -31,6 +32,17 @@ const useAudioPlayer = (
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  const handleSeek = (e) => {
+  const audio = audioRef.current;
+
+  const seekTime =
+    (e.target.value / 100) * audio.duration;
+
+  audio.currentTime = seekTime;
+
+  setProgress(e.target.value);
+  setCurrentTime(seekTime);
+};
   // Shuffle
   const handleShuffle = () => {
     if (allTracks.length <= 1) return;
@@ -178,6 +190,7 @@ const useAudioPlayer = (
     handleMute,
     handleNext,
     handlePrev,
+    handleSeek,
 
     formatTime,
   };

@@ -19,6 +19,7 @@ const PlayerBarDesktop = ({
   setVolume,
   isMuted,
   handleMute,
+  handleSeek
 }) => {
   return (
     <div className="hidden sm:block fixed md:bottom-0 w-full bg-[#111111] border-t border-pink-500/20 px-4 py-3 z-50">
@@ -61,6 +62,7 @@ const PlayerBarDesktop = ({
             currentTime={currentTime}
             duration={duration}
             formatTime={formatTime}
+            handleSeek={handleSeek}
           />
         </div>
 

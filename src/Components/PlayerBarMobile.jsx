@@ -6,6 +6,7 @@ const PlayerBarMobile = ({
   handlePlay,
   handleNext,
   handlePrev,
+  handleSeek
 }) => {
   return (
     <div className="fixed block bottom-16 bg-linear-to-r from-[#0f0f0f] via-[#b10d6c] to-[#0f0f0f] sm:hidden w-full px-2 py-2 -ml-3 rounded-2xl z-50">
@@ -64,4 +65,4 @@ const PlayerBarMobile = ({
   );
 };
 
-export default PlayerBarMobile;
+export default PlayerBarMobile
