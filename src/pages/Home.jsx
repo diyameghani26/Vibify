@@ -4,7 +4,7 @@ import HomeSkeleton from '../Components/skeletons/HomeSkeleton'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PageWrapper from "../components/PageWrapper";
-
+import { motion } from "framer-motion";
 const Home = ({ setCurrentTrack, setIsPlaying , isPlaying , currentTrack , allTracks , setAllTracks }) => {
 
    const [loading, setLoading] = useState(true)
@@ -134,23 +134,45 @@ const toggleLike = (id) =>{
 
 <div className="  pb-30 sm:px-4 lg:px-10">
  
-  <PageWrapper>
+  
   <div 
 
   className="space-y-2">
     {allTracks.map((track) => (
-      <div key={track.id} 
+      <motion.div key={track.id} 
           onClick={() => {
   setCurrentTrack(track)
   setIsPlaying(true)
 }}
-      className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/5">
+
+  whileHover={{
+    x: 8,
+    scale: 1.01,
+  }}
+  transition={{
+    duration: 0.2,
+  }}
+
+
+     className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/8 hover:shadow-lg  cursor-pointer">
         
         {/* Track Number */}
         <span className="text-gray-400 w-3 sm:w-4 md:w-5 text-sm ">{track.id}</span>
         
         {/* Cover Image */}
-        <img src={track.cover} alt={track.title} className="w-12 h-12 rounded" />
+       <div className="overflow-hidden rounded">
+  <motion.img
+    src={track.cover}
+    alt={track.title}
+    whileHover={{
+      scale: 1.15,
+    }}
+    transition={{
+      duration: 0.3,
+    }}
+    className="w-12 h-12 rounded"
+  />
+</div>
         
         {/* Track Info */}
         <div className="flex-1">
@@ -178,10 +200,9 @@ const toggleLike = (id) =>{
         <span className="text-gray-400 text-sm sm:text-base">{track.duration}</span>
         
         
-      </div>
+      </motion.div>
     ))}
   </div>
-  </PageWrapper>
 </div>
        
 
