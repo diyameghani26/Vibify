@@ -14,9 +14,11 @@ import ArtistsDetail from './pages/ArtistsDetail'
 import SplashScreen from './Components/SplashScreen'
 import Profile from './pages/profile'
 import ProfileDetail from "./pages/ProfileDetail"
-
+import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 const App = () => {
 
+  const location = useLocation();
    const [searchQuery, setSearchQuery] = useState('')
   const [showSplash, setShowSplash] = useState( true);
 const [showBeats] = useState(true);
@@ -64,7 +66,8 @@ if(showSplash){
   <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
   <div className=' px-4 font-sans'>
-    <Routes>
+    <AnimatePresence mode="wait">
+    <Routes  location={location} key={location.pathname}>
       <Route path="/" element={<Home
        allTracks={allTracks}
   setAllTracks={setAllTracks}
@@ -99,7 +102,7 @@ if(showSplash){
         <Route path="/profile-detail" element={<ProfileDetail   allTracks={allTracks}  />} />
     </Routes>
    
-
+</AnimatePresence>
 <PlayerBar
 
   currentTrack={currentTrack}

@@ -3,6 +3,7 @@ import tracks from '../data/track'
 import HomeSkeleton from '../Components/skeletons/HomeSkeleton'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import PageWrapper from "../components/PageWrapper";
 
 const Home = ({ setCurrentTrack, setIsPlaying , isPlaying , currentTrack , allTracks , setAllTracks }) => {
 
@@ -40,6 +41,7 @@ const toggleLike = (id) =>{
   if (loading) {
     return <HomeSkeleton />
   } return (
+     <PageWrapper>
     <div className=' flex flex-col gap-6 text-white'>
       <h1 className='text-xl mt-5 sm:text-3xl md:text-4xl lg:text-4xl px-2 sm:px-6 lg:px-10 md:mt-3'>{greeting}</h1>
       
@@ -130,9 +132,9 @@ const toggleLike = (id) =>{
 </Link>
 </div>
 
-<div className="  sm:px-4 lg:px-10">
+<div className="  pb-30 sm:px-4 lg:px-10">
  
-  
+  <PageWrapper>
   <div 
 
   className="space-y-2">
@@ -179,12 +181,13 @@ const toggleLike = (id) =>{
       </div>
     ))}
   </div>
+  </PageWrapper>
 </div>
        
 
     </div>
 
-    
+    </PageWrapper>
   )
 }
 

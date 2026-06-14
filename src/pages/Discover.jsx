@@ -3,6 +3,7 @@ import { useState } from 'react'
 import tracks from '../data/track'
 import DiscoverSkeleton from '../Components/skeletons/DiscoverSkeleton'
 import { useEffect } from 'react'
+import PageWrapper from "../components/PageWrapper";
 
 const Discover = ({ setCurrentTrack, setIsPlaying }) => {
   const [selectedGenre, setSelectedGenre] = useState('All')
@@ -25,6 +26,7 @@ const Discover = ({ setCurrentTrack, setIsPlaying }) => {
   return <DiscoverSkeleton />
 }
   return (
+    <PageWrapper>
     <div className='pb-34 md:pb-29 px-4'>
       {/* Genre Pills */}
       <div className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 mt-6 md:items-center md:justify-center md:mt-8">
@@ -76,6 +78,7 @@ const Discover = ({ setCurrentTrack, setIsPlaying }) => {
         ))}
       </div>
     </div>
+    </PageWrapper>
   )
 }
 

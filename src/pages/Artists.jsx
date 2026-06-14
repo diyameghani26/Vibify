@@ -2,7 +2,7 @@ import artists from "../data/artists";
 import { useNavigate } from 'react-router-dom'
 import { useEffect , useState} from "react";
 import ArtistsSkeleton from "../Components/skeletons/AtistSkeleton";
-
+import PageWrapper from "../components/PageWrapper";
 const Artists = () => {
    const navigate = useNavigate()
   
@@ -21,6 +21,7 @@ const Artists = () => {
   return <ArtistsSkeleton />
 } 
   return (
+      <PageWrapper>
     <div className="bg-black/30 min-h-screen text-white pb-20 md:px-4 sm:px-8 py-3 md:py-6">
 
       {/* Heading */}
@@ -209,6 +210,7 @@ const Artists = () => {
 </div>
 
     </div>
+    </PageWrapper>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import LikedSkeleton from '../Components/skeletons/LikedSkeleton'
 import { useState, useEffect } from 'react'
+import PageWrapper from "../components/PageWrapper";
 
 const Liked = ({
   allTracks,
@@ -53,6 +54,7 @@ if (loading) {
 }
 
   return (
+    <PageWrapper>
     <div className="pb-32 px-4 sm:px-6 lg:px-8 pt-6">
 
   {/* hero */}
@@ -212,6 +214,7 @@ if (loading) {
   </div>
 
 </div>
+</PageWrapper>
   )
 }
 
