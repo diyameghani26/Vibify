@@ -13,8 +13,7 @@ const Liked = ({
   const likedTracks = allTracks.filter(
     (track) => track.liked 
   )
-
-  const removeLike = (id) => {
+ const removeLike = (id) => {
     const updatedTracks = allTracks.map((track)=>{
       if(track.id === id){
         return {
@@ -26,19 +25,16 @@ const Liked = ({
     })
     setAllTracks(updatedTracks)
   }
-
-  const  handleShuffle =()=>{
-
-    if(likedTracks.length === 0){
+ const  handleShuffle =()=>{
+if(likedTracks.length === 0){
       alert("No liked songs to shuffle")
     return
     }
-    const randomIndex = Math.floor(Math.random()*likedTracks.length)
+const randomIndex = Math.floor(Math.random()*likedTracks.length)
 
   setCurrentTrack(likedTracks[randomIndex])
   setIsPlaying(true)
   }
-  
   const [loading, setLoading] = useState(true)
 
 useEffect(() => {
@@ -73,10 +69,6 @@ if (loading) {
         Your Liked Songs
       </h1>
 
-      {/* <p className="text-gray-400 mt-3">
-        Vibify User • 24 songs • 1 hr 42 min
-      </p> */}
-
       <div className="flex gap-3 mt-6">
         <button 
     onClick={() => {
@@ -110,12 +102,7 @@ if (loading) {
       <button className="text-pink-400 border-b border-pink-400 pb-1">
         List
       </button>
-
-   
     </div>
-
-  
-
   </div>
 
    {likedTracks.length === 0 && (
@@ -161,8 +148,6 @@ if (loading) {
           {track.album}
         </span>
 
-       
-
         <div className="flex items-center justify-end gap-3">
   <i className="ri-heart-fill text-pink-500"></i>
   <span>{track.duration}</span>
@@ -197,7 +182,6 @@ if (loading) {
               {track.artist}
             </p>
           </div>
-
         </div>
 
         <div className="text-right">
@@ -217,5 +201,4 @@ if (loading) {
 </PageWrapper>
   )
 }
-
 export default Liked

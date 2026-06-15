@@ -164,10 +164,20 @@ const tracks = [
     id: "16",
     title: "Neon Serenity",
     artist: "Electric Vibes",
-    audio: "public/songs/neon-serenity.mp3",
+    audio: "/songs/neon-serenity.mp3",
     cover: "/hero img.png",
     genre: "Instrumental",
     duration: "3:27",
+    liked: false,
+  },
+    {
+    id: "17",
+    title: "alexgrohl-classical",
+    artist: "Electric Vibes",
+    audio: "/songs/alexgrohl-classical.mp3",
+    cover: "/covers/classical.jpg",
+    genre: "Classical",
+    duration: "2:28",
     liked: false,
   }
 ]

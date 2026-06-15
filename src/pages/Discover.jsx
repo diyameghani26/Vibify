@@ -9,8 +9,6 @@ const Discover = ({ setCurrentTrack, setIsPlaying }) => {
   const [selectedGenre, setSelectedGenre] = useState('All')
 
   const genres = ['All', 'Ambient', 'Lo-fi', 'Classical', 'Instrumental', 'Electronic']
-
-  // Sirf genre se filter karo
   const filteredTracks = tracks.filter((track) => {
     return selectedGenre === "All" || track.genre === selectedGenre
   })

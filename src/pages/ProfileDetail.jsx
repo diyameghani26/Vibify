@@ -32,7 +32,6 @@ const ProfileDetail = ({ allTracks = [] }) => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("email");
     localStorage.removeItem("password");
-
     navigate("/profile");
   };
 
@@ -48,9 +47,6 @@ const ProfileDetail = ({ allTracks = [] }) => {
         >
           <i className="ri-arrow-left-line"></i>
         </button>
-
-        
-
       </div>
 
       <div className="max-w-2xl mx-auto">
@@ -59,14 +55,7 @@ const ProfileDetail = ({ allTracks = [] }) => {
         <div className="bg-zinc-900/50 border border-zinc-800 rounded-3xl p-8 text-center">
 
           <div
-            className="
-            w-24 h-24
-            mx-auto
-            rounded-full
-            bg-pink-500/20
-            border border-pink-500/30
-            flex items-center justify-center
-          "
+            className=" w-24 h-24  mx-auto   rounded-full   bg-pink-500/20 border border-pink-500/30 flex items-center justify-center "
           >
             <i className="ri-user-3-line text-5xl text-pink-400"></i>
           </div>
@@ -113,7 +102,6 @@ const ProfileDetail = ({ allTracks = [] }) => {
             className="text-4xl font-bold text-pink-400">
               {likedSongs}
             </span>
-
           </div>
         </div>
 
@@ -153,7 +141,6 @@ const ProfileDetail = ({ allTracks = [] }) => {
                 }`}
               />
             </button>
-
           </div>
 
           {/* Notifications */}
@@ -185,27 +172,12 @@ const ProfileDetail = ({ allTracks = [] }) => {
                 }`}
               />
             </button>
-
           </div>
-
         </div>
-
         {/* Logout */}
         <button
   onClick={handleLogout}
-  className="
-    w-full
-    mt-6
-    h-16
-    text-2xl
-    rounded-xl
-    bg-pink-500/15
-    border border-pink-500/30
-    text-pink-400
-    font-semibold
-    hover:bg-pink-500/25
-    transition-all
-  "
+  className=" w-full mt-6    h-16 text-2xl  rounded-xl   bg-pink-500/15   border border-pink-500/30  text-pink-400  font-semibold  hover:bg-pink-500/25  transition-all "
 >
   Logout
 </button>

@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom'
 import PageWrapper from "../components/PageWrapper";
 import { motion } from "framer-motion";
 const Home = ({ setCurrentTrack, setIsPlaying , isPlaying , currentTrack , allTracks , setAllTracks }) => {
-
-   const [loading, setLoading] = useState(true)
+const [loading, setLoading] = useState(true)
 const hour  =  new Date().getHours()
 
 const greeting  = 
@@ -27,7 +26,6 @@ const toggleLike = (id) =>{
         liked:!track.liked,
       }
     }
-
     return track
   })
   setAllTracks(updatedTracks)
@@ -86,7 +84,6 @@ const toggleLike = (id) =>{
         text-sm sm:text-lg'>
           Lumina Drift
         </p>
-
       </div>
 
       {/* Play Button */}
@@ -100,8 +97,7 @@ const toggleLike = (id) =>{
     setCurrentTrack(featuredTrack);
     setIsPlaying(true);
   }}
-      
-      className='w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20
+    className='w-10 h-10 sm:w-16 sm:h-16 lg:w-20 lg:h-20
       rounded-full bg-pink-500 hover:shadow-[0_0_20px_#e91e8c]
       flex items-center justify-center
       hover:scale-110 transition-all'>
@@ -113,13 +109,9 @@ const toggleLike = (id) =>{
       : "ri-play-fill"
   }`}
 />
-
       </button>
-
     </div>
-
   </div>
-
 </div>
 
 <div className=' mt-2 flex flex-row items-center justify-between'>
@@ -133,8 +125,6 @@ const toggleLike = (id) =>{
 </div>
 
 <div className="  pb-30 sm:px-4 lg:px-10">
- 
-  
   <div 
 
   className="space-y-2">
@@ -144,7 +134,6 @@ const toggleLike = (id) =>{
   setCurrentTrack(track)
   setIsPlaying(true)
 }}
-
   whileHover={{
     x: 8,
     scale: 1.01,
@@ -152,11 +141,8 @@ const toggleLike = (id) =>{
   transition={{
     duration: 0.2,
   }}
-
-
      className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/8 hover:shadow-lg  cursor-pointer">
-        
-        {/* Track Number */}
+  {/* Track Number */}
         <span className="text-gray-400 w-3 sm:w-4 md:w-5 text-sm ">{track.id}</span>
         
         {/* Cover Image */}
@@ -173,15 +159,12 @@ const toggleLike = (id) =>{
     className="w-12 h-12 rounded"
   />
 </div>
-        
-        {/* Track Info */}
+ {/* Track Info */}
         <div className="flex-1">
           <p className="text-white font-semibold">{track.title}</p>
           <p className="text-gray-400 text-[10px] sm:text-sm">{track.artist}</p>
-        </div>
-        
+        </div> 
         {/* heart icon & Duration */}
-
     <button
   onClick={(e) => {
     e.stopPropagation()
@@ -196,20 +179,13 @@ const toggleLike = (id) =>{
     }
   ></i>
 </button>
-
         <span className="text-gray-400 text-sm sm:text-base">{track.duration}</span>
-        
-        
-      </motion.div>
+          </motion.div>
     ))}
   </div>
 </div>
-       
-
     </div>
-
     </PageWrapper>
   )
 }
-
 export default Home

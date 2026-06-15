@@ -1,4 +1,5 @@
 import React from "react";
+import NowPlayingMobile from "./NowPlayingMobile";
 
 const PlayerBarMobile = ({
   currentTrack,
@@ -6,14 +7,22 @@ const PlayerBarMobile = ({
   handlePlay,
   handleNext,
   handlePrev,
-  handleSeek
+  handleSeek,
+   setShowNowPlaying,
 }) => {
   return (
-    <div className="fixed block bottom-16 bg-linear-to-r from-[#0f0f0f] via-[#b10d6c] to-[#0f0f0f] sm:hidden w-full px-2 py-2 -ml-3 rounded-2xl z-50">
+    <div 
+  onClick={() => {
+    setShowNowPlaying(true);
+  }}
+
+    className="fixed block bottom-16 bg-linear-to-r from-[#0f0f0f] via-[#b10d6c] to-[#0f0f0f] sm:hidden w-full px-2 py-2 -ml-3 rounded-2xl z-50">
       <div className="flex items-center justify-between gap-2">
 
         {/* Left - Song Info */}
-        <div className="flex items-center gap-2 flex-1 min-w-0">
+        <div 
+       
+        className="flex items-center gap-2 flex-1 min-w-0">
           <img
             src={currentTrack.cover}
             alt={currentTrack.title}
@@ -41,8 +50,12 @@ const PlayerBarMobile = ({
             <i className="ri-skip-back-fill text-2xl"></i>
           </button>
 
-          <button
-            onClick={handlePlay}
+<button
+  onClick={(e) => {
+    e.stopPropagation();
+    handleNext();
+  }}
+
             className="w-9 h-9 bg-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition"
           >
             <i
