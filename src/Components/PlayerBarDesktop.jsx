@@ -19,7 +19,9 @@ const PlayerBarDesktop = ({
   setVolume,
   isMuted,
   handleMute,
-  handleSeek
+  handleSeek,
+    showQueueDesktop,
+  setShowQueueDesktop,
 }) => {
   return (
     <div className="hidden sm:block fixed md:bottom-0 w-full bg-[#111111] border-t border-pink-500/20 px-4 py-3 z-50">
@@ -66,8 +68,29 @@ const PlayerBarDesktop = ({
           />
         </div>
 
+        <button
+  onClick={() =>
+    setShowQueueDesktop(!showQueueDesktop)
+  }
+>
+  <i className="ri-play-list-2-line text-2xl"></i>
+</button>
+
         {/* Right - Volume */}
-        <div className="flex items-center gap-2 w-32 mr-6 justify-end">
+        <div className="flex items-center gap-2 w-32 mr-8 justify-end">
+
+          <button
+  onClick={() =>
+    setShowQueueDesktop(!showQueueDesktop)
+  }
+  className={`transition-colors ${
+    showQueueDesktop
+      ? "text-pink-500"
+      : "text-gray-400 hover:text-pink-500"
+  }`}
+>
+  <i className="ri-play-list-2-line text-2xl"></i>
+</button>
 
           <button
             onClick={handleMute}
