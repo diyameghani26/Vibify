@@ -13,7 +13,7 @@ const useAudioPlayer = (
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-
+const [isShuffleOn, setIsShuffleOn] = useState(false);
   const audioRef = useRef(new Audio());
 
 
@@ -43,23 +43,24 @@ const useAudioPlayer = (
   setProgress(e.target.value);
   setCurrentTime(seekTime);
 };
-  // Shuffle
   const handleShuffle = () => {
-    if (allTracks.length <= 1) return;
+  setIsShuffleOn((prev) => !prev);
 
-    const currentIndex = allTracks.findIndex(
-      (track) => track.id === currentTrack.id
-    );
+  if (allTracks.length <= 1) return;
 
-    let randomIndex;
+  const currentIndex = allTracks.findIndex(
+    (track) => track.id === currentTrack.id
+  );
 
-    do {
-      randomIndex = Math.floor(Math.random() * allTracks.length);
-    } while (randomIndex === currentIndex);
+  let randomIndex;
 
-    setCurrentTrack(allTracks[randomIndex]);
-    setIsPlaying(true);
-  };
+  do {
+    randomIndex = Math.floor(Math.random() * allTracks.length);
+  } while (randomIndex === currentIndex);
+
+  setCurrentTrack(allTracks[randomIndex]);
+  setIsPlaying(true);
+};
 
   // Play Pause
   const handlePlay = () => {
@@ -191,6 +192,8 @@ const useAudioPlayer = (
     handleNext,
     handlePrev,
     handleSeek,
+     handleShuffle,
+  isShuffleOn,
 
     formatTime,
   };

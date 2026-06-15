@@ -8,6 +8,15 @@
   scrollbar-width: none;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .beat {
   width: 2px;
   background: linear-gradient(to top, #a855f7, #ec4899);

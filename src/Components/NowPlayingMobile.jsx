@@ -9,8 +9,14 @@ const NowPlayingMobile = ({
   handlePlay,
   handleNext,
   handlePrev,
+  handleRepeat,
+  handleShuffle,
+  isShuffleOn,
+    repeatMode,
+    setShowQueue,
 }) => {
   if (!showNowPlaying || !currentTrack) return null;
+
 
   return (
     <AnimatePresence>
@@ -126,53 +132,67 @@ const NowPlayingMobile = ({
           </div>
 
         {/* Controls */}
-<div className="flex items-center justify-between mt-6 px-2">
+<div className="flex items-center justify-between mb-8">
+<button onClick={handleShuffle}>
+  <i
+    className={`ri-shuffle-line text-2xl transition-colors duration-300 ${
+      isShuffleOn
+        ? "text-pink-500"
+        : "text-white"
+    }`}
+  ></i>
+</button>
 
-  {/* Shuffle */}
-  <button className="text-white/80">
-    <i className="ri-shuffle-line text-2xl"></i>
-  </button>
-
-  {/* Previous */}
-  <button
-    onClick={handlePrev}
-    className="text-white"
+  <button onClick={handlePrev}
+   className="text-white active:text-pink-500 transition-colors"
   >
-    <i className="ri-skip-back-fill text-4xl"></i>
+    <i className="ri-skip-back-fill text-4xl "></i>
   </button>
 
-  {/* Play Pause */}
   <button
     onClick={handlePlay}
-    className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-xl"
+    className="w-18 h-18 rounded-full bg-white flex items-center justify-center shadow-xl"
   >
     <i
-      className={`text-black text-3xl ${
-        isPlaying
-          ? "ri-pause-fill"
-          : "ri-play-fill"
+      className={`text-black text-4xl ${
+        isPlaying ? "ri-pause-fill" : "ri-play-fill"
       }`}
-    ></i>
+    />
   </button>
 
-  {/* Next */}
-  <button
-    onClick={handleNext}
-    className="text-white"
-  >
-    <i className="ri-skip-forward-fill text-4xl"></i>
-  </button>
+<button
+  onClick={handleNext}
+  className="text-white active:text-pink-500 transition-colors"
+>
+  <i className="ri-skip-forward-fill text-4xl"></i>
+</button>
 
-  {/* Queue */}
-  <button className="text-white/80">
-    <i className="ri-play-list-2-line text-2xl"></i>
-  </button>
+ <button onClick={handleRepeat}>
+  <i
+    className={`text-2xl ${
+      repeatMode !== "off"
+        ? "text-pink-500"
+        : "text-white"
+    } ${
+      repeatMode === "one"
+        ? "ri-repeat-one-line"
+        : "ri-repeat-line"
+    }`}
+  ></i>
+</button>
+</div>
 
-  {/* Repeat */}
-  <button className="text-white/80">
-    <i className="ri-repeat-line text-2xl"></i>
+{/* Queue */}
+<div className="flex justify-center">
+  <button 
+    onClick={() => {
+    console.log("QUEUE CLICKED");
+    setShowQueue(true);
+  }}
+  className="px-5 py-2 rounded-full bg-white/10 border border-white/10 text-white flex items-center gap-2">
+    <i className="ri-play-list-2-line"></i>
+    <span>Queue</span>
   </button>
-
 </div>
         </div>
       </motion.div>

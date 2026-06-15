@@ -4,6 +4,7 @@ import PlayerBarDesktop from "./PlayerBarDesktop";
 import useAudioPlayer from "../hooks/useAudioPlayer";
 import { useState } from "react";
 import NowPlayingMobile from "./NowPlayingMobile";
+import Queue from "./Queue";
 
 const PlayerBar = ({
   currentTrack,
@@ -13,13 +14,15 @@ const PlayerBar = ({
   allTracks,
 }) => {
   const [showNowPlaying, setShowNowPlaying] = useState(false);
+  const [showQueue, setShowQueue] = useState(false);
+  const [queue, setQueue] = useState(allTracks);
   const player = useAudioPlayer(
     currentTrack,
     setCurrentTrack,
     isPlaying,
     setIsPlaying,
     allTracks
-
+     
     
   );
 
@@ -68,6 +71,20 @@ const PlayerBar = ({
   handlePlay={player.handlePlay}
   handleNext={player.handleNext}
   handlePrev={player.handlePrev}
+   handleShuffle={player.handleShuffle}
+  handleRepeat={player.handleRepeat}
+  repeatMode={player.repeatMode}
+  isShuffleOn={player.isShuffleOn}
+  setShowQueue={setShowQueue}
+/>
+
+<Queue
+  showQueue={showQueue}
+  setShowQueue={setShowQueue}
+  queue={queue}
+  currentTrack={currentTrack}
+  setCurrentTrack={setCurrentTrack}
+  setIsPlaying={setIsPlaying}
 />
     </>
 
