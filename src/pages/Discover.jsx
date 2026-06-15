@@ -3,7 +3,7 @@ import { useState } from 'react'
 import tracks from '../data/track'
 import DiscoverSkeleton from '../Components/skeletons/DiscoverSkeleton'
 import { useEffect } from 'react'
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "../Components/PageWrapper";
 
 const Discover = ({ setCurrentTrack, setIsPlaying }) => {
   const [selectedGenre, setSelectedGenre] = useState('All')
