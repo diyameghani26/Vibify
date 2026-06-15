@@ -3,7 +3,7 @@ import tracks from '../data/track'
 import HomeSkeleton from '../Components/skeletons/HomeSkeleton'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "../Components/PageWrapper";
 import { motion } from "framer-motion";
 const Home = ({ setCurrentTrack, setIsPlaying , isPlaying , currentTrack , allTracks , setAllTracks }) => {
 const [loading, setLoading] = useState(true)

@@ -1,7 +1,7 @@
 import React from 'react'
 import LikedSkeleton from '../Components/skeletons/LikedSkeleton'
 import { useState, useEffect } from 'react'
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "../Components/PageWrapper";
 
 const Liked = ({
   allTracks,

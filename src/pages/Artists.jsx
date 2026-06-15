@@ -2,7 +2,7 @@ import artists from "../data/artists";
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import ArtistsSkeleton from "../Components/skeletons/AtistSkeleton";
-import PageWrapper from "../components/PageWrapper";
+import PageWrapper from "../Components/PageWrapper";
 const Artists = () => {
   const navigate = useNavigate()
   const handleArtistClick = (artist) => {
