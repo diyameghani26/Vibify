@@ -623,6 +623,144 @@ Includes:
 
 ---
 
+## Queue System Flow
+Mobile Queue
+Components
+PlayerBar
+│
+├── PlayerBarMobile
+├── NowPlayingMobile
+└── Queue
+Flow
+User taps Player Bar
+        ↓
+NowPlayingMobile opens
+        ↓
+User taps Queue button
+        ↓
+showQueue = true
+        ↓
+Queue fullscreen screen opens
+        ↓
+User selects a song
+        ↓
+setCurrentTrack(track)
+setIsPlaying(true)
+        ↓
+Queue closes automatically
+State Management
+const [showQueue, setShowQueue] = useState(false);
+
+Used for controlling mobile fullscreen queue visibility.
+
+# Desktop Queue
+Components
+PlayerBar
+│
+├── PlayerBarDesktop
+└── QueueDesktop
+Flow
+User clicks Queue Icon
+        ↓
+showQueueDesktop = true
+        ↓
+QueueDesktop popup opens
+        ↓
+Displays:
+- Now Playing
+- Up Next Songs
+        ↓
+User selects song
+        ↓
+setCurrentTrack(track)
+setIsPlaying(true)
+        ↓
+Queue popup closes
+State Management
+const [showQueueDesktop, setShowQueueDesktop] = useState(false);
+
+Used for controlling desktop queue popup visibility.
+
+# Queue Data Flow
+
+Queue is generated from the available tracks list.
+
+const queue = allTracks.filter(
+  (track) => track.id !== currentTrack.id
+);
+Structure
+Current Track
+      ↓
+Now Playing Section
+
+Remaining Tracks
+      ↓
+Up Next Section
+🎧 Playback Controls
+Play / Pause
+handlePlay()
+
+Toggles audio playback state.
+
+Next Song
+handleNext()
+
+Moves to the next track in the playlist.
+
+Previous Song
+handlePrev()
+
+Moves to the previous track.
+
+Shuffle
+handleShuffle()
+
+Selects a random track from the available songs and starts playback.
+
+Repeat
+none → all → one → none
+
+Cycle handled using:
+
+repeatMode
+✨ UI Enhancements Added
+Framer Motion
+
+Used for:
+
+Queue slide animations
+Now Playing transitions
+Track hover effects
+Smooth component mounting/unmounting
+Mobile Experience
+Fullscreen Now Playing screen
+Fullscreen Queue screen
+Animated album artwork
+Responsive player controls
+Desktop Experience
+Floating Queue Popup
+Now Playing Card
+Up Next Playlist
+Queue Toggle Button inside Player Bar
+
+## Architecture
+PlayerBar
+│
+├── useAudioPlayer
+│   ├── handlePlay
+│   ├── handleNext
+│   ├── handlePrev
+│   ├── handleShuffle
+│   └── handleRepeat
+│
+├── PlayerBarMobile
+├── PlayerBarDesktop
+├── NowPlayingMobile
+├── Queue
+└── QueueDesktop
+
+This architecture keeps playback logic centralized inside useAudioPlayer while UI components remain reusable and focused on presentation. 🚀
+
 # Project Structure
 
 ```bash
